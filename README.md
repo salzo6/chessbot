@@ -32,6 +32,7 @@ Read in order for a full grounding, or jump to what you need.
 | 09 | [Local Compute & Apple Silicon](docs/09-local-compute-apple-silicon.md) | Running/optimizing on a MacBook Pro; CPU/GPU/ANE/AMX; what actually determines strength on one machine |
 | 10 | [Supporting Systems](docs/10-supporting-systems.md) | Opening books, endgame tablebases, time management, multithreading, deployment, Lichess bots |
 | 11 | [Roadmap & Strategy](docs/11-roadmap-and-strategy.md) | The synthesis: concrete phased plans, decision points, and how a future builder should approach this |
+| 12 | [The Platform](docs/12-the-platform.md) | The interactive layer: download bots, play against them, pit bot-vs-bot, anchored Elo leaderboard — and the decision to build it *first* |
 | — | [References](docs/references.md) | Consolidated bibliography of primary sources |
 
 ---
@@ -52,7 +53,9 @@ Document 07 is the map of candidate answers. Document 11 turns it into a plan. E
 
 ## Build approach (decided)
 
-When building begins, the sequence is fixed (see [docs/11](docs/11-roadmap-and-strategy.md)):
+**Step 0 — build the platform first ([docs/12](docs/12-the-platform.md)).** Before any self-made engine, stand up the interactive layer: download real bots (Stockfish + a ladder), play against them on a board, pit two bots against each other, and rank them on an anchored Elo leaderboard. This deliberately *prepends* the engine-first sequence below — the rationale is to internalize and de-risk the build→measure→matchmake→iterate loop on known-good engines before investing weeks in a core. (Honest caveat, accepted: the platform is off the critical path to beating Stockfish, and the match/Elo machinery is a solved problem — so build it thin and reuse off-the-shelf tools.)
+
+Then the engine sequence is fixed (see [docs/11](docs/11-roadmap-and-strategy.md)):
 1. **Build an algorithm-only engine first** — pure search + hand-crafted evaluation, zero machine learning, ~3000–3400 Elo. Runs entirely on the local MacBook.
 2. **Master the full loop end-to-end** — play it against Stockfish and a ladder of other bots, compute its Elo, watch it play, iterate. Get fluent at *building → measuring → matchmaking → iterating* before adding any complexity.
 3. **Only then, training** — an NNUE net trained on a rented RunPod GPU (existing credit), deliberately gated behind a working, *measured* algorithm-only engine. Training is pointless until you can reliably measure whether it helped.

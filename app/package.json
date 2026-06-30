@@ -1,0 +1,20 @@
+{
+  "name": "chessbot-platform",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "web",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n web,server -c magenta,cyan \"npm:dev:web\" \"npm:dev:server\"",
+    "dev:web": "npm --workspace web run dev",
+    "dev:server": "npm --workspace server run dev",
+    "build": "npm --workspace web run build",
+    "start": "npm --workspace server run start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

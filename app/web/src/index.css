@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* ============================================================
+   GAMBIT — Engine Atelier
+   Aesthetic: ink-black canvas, warm ivory, brass-gold accents,
+   film-grain atmosphere, an elegant stone/slate board.
+   ============================================================ */
+
+@theme {
+  --color-ink: #0c0b09;
+  --color-ink-2: #121110;
+  --color-surface: #18150f;
+  --color-surface-2: #211d16;
+  --color-line: rgba(244, 238, 226, 0.08);
+  --color-line-2: rgba(244, 238, 226, 0.14);
+
+  --color-ivory: #f4eee2;
+  --color-mist: #bdb29c;
+  --color-taupe: #8c8068;
+
+  --color-brass: #c8a35b;
+  --color-brass-bright: #e6cb8d;
+  --color-brass-deep: #93722f;
+
+  --color-ember: #cf7350;
+  --color-sage: #93a972;
+  --color-azure: #7fa6b8;
+
+  --board-light: #e9dcbf;
+  --board-dark: #46514a;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
+
+  --radius: 14px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-ivory);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 380;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: #1a1407;
+  }
+
+  /* Slim, refined scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line-2);
+    border-radius: 99px;
+    border: 3px solid var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-taupe); }
+}
+
+/* ---------- Atmosphere ---------- */
+
+/* Film grain overlay (whole viewport) */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Brass glow blobs for depth */
+.glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hairline { background: var(--color-line); }
+
+.panel {
+  background:
+    linear-gradient(180deg, rgba(244, 238, 226, 0.025), transparent 140px),
+    var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+.panel-2 {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-line);
+  border-radius: calc(var(--radius) - 4px);
+}
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+.brass-text {
+  background: linear-gradient(180deg, var(--color-brass-bright), var(--color-brass));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-line-2), transparent);
+}
+
+/* Focus ring */
+.focusable:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   CHESSGROUND board theme — pure CSS checker, no image
+   (piece images come from chessground.cburnett.css)
+   ============================================================ */
+
+.cg-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(244, 238, 226, 0.07) inset,
+    0 30px 80px -30px rgba(0, 0, 0, 0.85);
+}
+
+cg-board {
+  background-color: var(--board-light);
+  background-image: repeating-conic-gradient(
+    var(--board-dark) 0% 25%,
+    var(--board-light) 0% 50%
+  );
+  background-size: 25% 25%;
+}
+
+/* Last-move + selection tints in brass */
+cg-board square.last-move {
+  background: rgba(200, 163, 91, 0.32);
+}
+cg-board square.selected {
+  background: rgba(200, 163, 91, 0.5);
+}
+cg-board square.check {
+  background: radial-gradient(ellipse at center, rgba(207, 115, 80, 0.9) 0%, rgba(207, 115, 80, 0.4) 45%, transparent 75%);
+}
+cg-board square.move-dest {
+  background: radial-gradient(rgba(20, 18, 12, 0.32) 22%, transparent 24%);
+}
+cg-board square.oc.move-dest {
+  background: radial-gradient(transparent 0%, transparent 78%, rgba(200, 163, 91, 0.55) 80%);
+}
+
+/* Coordinates */
+.cg-wrap coords {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+}
+.cg-wrap coords.ranks coord,
+.cg-wrap coords.files coord {
+  color: rgba(244, 238, 226, 0.55);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}

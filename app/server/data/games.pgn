@@ -1,0 +1,520 @@
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Fairy-Stockfish"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 d5 3. exd5 Qxd5 4. Nc3 Qe6 5. Be2 c5 6. O-O Nc6 7. Re1 Nf6 8. Bb5 Nd7 9. Ng5 Qg6 10. d4 h6 11. Nf3 cxd4 12. Nxd4 Nxd4 13. Qxd4 Bd6 14. Rxe5+ Bxe5 15. Qxe5+ Kf8 16. Qc7 Qb6 17. Nd5 Qxc7 18. Nxc7 Rb8 19. Bf4 a6 20. Re1 Nf6 21. Bd3 Bd7 22. Ne6+ fxe6 23. Bxb8 Kf7 24. Be5 Bc6 25. c4 Rd8 26. Bf1 b5 27. f3 bxc4 28. Bxc4 Bd5 29. Bxa6 Bxa2 30. Ra1 Bb3 31. Be2 Rd5 32. Ra7+ Kg6 33. Bc3 Rd7 34. Rxd7 Nxd7 35. Kf2 Kf7 36. f4 g5 37. Ke3 Nf6 38. fxg5 Nd5+ 39. Kd4 hxg5 40. Bd2 Kf6 41. Bc4 Bxc4 42. Kxc4 g4 43. Kc5 Ke7 44. Kc6 Kf6 45. b4 Ke5 46. b5 Kd4 47. b6 Nxb6 48. Kxb6 Kd3 49. Bf4 Kd4 50. Bg3 Kd5 51. Bf2 Kd6 52. Kb5 Kd5 53. Kb4 Ke4 54. Kc3 Ke5 55. Kd3 Kf5 56. Bg3 Kf6 57. Ke4 Kg6 58. Kf4 Kh5 59. Ke5 Kg6 60. Kxe6 Kg5 61. Ke5 Kg6 62. Kf4 Kf7 63. Kf5 Ke7 64. Kxg4 Ke6 65. Bf4 Kf6 66. h4 Ke6 67. h5 Kf6 68. h6 Kg6 69. Be5 Kxh6 70. Kf5 Kh7 71. Kf6 Kg8 72. Bd6 Kh7 73. g4 Kg8 74. g5 Kh8 75. Kf7 Kh7 76. Bf8 Kh8 77. Bg7+ Kh7 78. g6# * 1-0
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Stockfish"]
+[Result "1/2-1/2"]
+[Termination "threefold repetition"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. Nc3 Nxc3 6. dxc3 Be7 7. Bc4 O-O 8. O-O Nc6 9. Re1 Bf5 10. Qe2 Re8 11. Bd3 Qd7 12. Be3 Bf6 13. Bxf5 Qxf5 14. Qd3 Qd7 15. h3 b6 16. Bg5 Bxg5 17. Nxg5 g6 18. Qc4 h6 19. Nf3 Ne5 20. Nxe5 Rxe5 21. Rxe5 dxe5 22. Qe2 Qe6 23. a4 Rd8 24. Re1 Kg7 25. Qxe5+ Qxe5 26. Rxe5 Rd1+ 27. Kh2 Rd2 28. Re7 Rxc2 29. Rxc7 Rxb2 30. Rxa7 Rxf2 31. Rb7 Rc2 32. Rxb6 Rxc3 33. a5 Ra3 34. a6 g5 35. g4 Ra2+ 36. Kg3 Ra3+ 37. Kg2 Ra2+ 38. Kf3 Ra4 39. Rd6 h5 40. gxh5 f5 41. Rg6+ Kh7 42. Ke3 Ra2 43. Kd4 f4 44. Ke4 Ra3 45. Kf5 f3 46. Rf6 Kg7 47. h6+ Kh7 48. Kg4 f2 49. Rxf2 Rxa6 50. Kxg5 Rg6+ 51. Kf4 Rc6 52. Kg5 Rg6+ 53. Kf5 Rb6 54. Rf4 Rxh6 55. Rf3 Kg7 56. Rg3+ Kh7 57. Rb3 Rc6 58. Rb4 Rc2 59. Kg5 Rc5+ 60. Kg4 Kh6 61. h4 Kh7 62. Rd4 Rc7 63. Re4 Rg7+ 64. Kh5 Rb7 65. Re5 Ra7 66. Rd5 Ra8 67. Rd7+ Kg8 68. Rd5 Kh7 69. Re5 Kg7 70. Kg5 Ra1 71. Rc5 Rg1+ 72. Kh5 Rb1 73. Rc7+ Kg8 74. Re7 Rb8 75. Kg5 Kf8 76. Kf6 Rb2 77. Re6 Rf2+ 78. Kg6 Rg2+ 79. Kh6 Kf7 80. Rc6 Rg8 81. h5 Rh8+ 82. Kg5 Rg8+ 83. Kf5 Rg1 84. Rc4 Ra1 85. Kg5 Kg7 86. Rc7+ Kh8 87. Rc8+ Kh7 88. Rc7+ Kg8 89. Re7 Ra5+ 90. Kg6 Ra6+ 91. Kf5 Ra2 92. Kf6 Rf2+ 93. Kg6 Rg2+ 94. Kh6 Rc2 95. Re6 Rc8 96. Kg6 Rb8 97. Rd6 Kh8 98. Re6 Rg8+ 99. Kh6 Rb8 100. Kg5 Kg7 101. Re5 Kh7 102. Re7+ Kg8 103. Re5 Kh7 104. Re7+ Kg8 105. Re5 Kf7 106. Rf5+ Kg8 107. Kg6 Kh8 108. Rf6 Kg8 109. Ra6 Rc8 110. Rd6 Ra8 111. h6 Kh8 112. Re6 Rc8 113. Kh5 Kh7 114. Re7+ Kg8 115. Re5 Kh8 116. Re6 Kh7 117. Re7+ Kh8 118. Rg7 Rc5+ 119. Rg5 Rc7 120. Rf5 Kh7 121. Ra5 Rf7 122. Rb5 Rf8 123. Rb7+ Kh8 124. Kg6 Rc8 125. Rh7+ Kg8 126. Rg7+ Kh8 127. Rf7 Rc6+ 128. Rf6 Rc8 129. Rb6 Rg8+ 130. Kh5 Rc8 131. Kg5 Rg8+ 132. Kh5 Rg1 133. Rb8+ Kh7 134. Rb7+ Kh8 135. Rc7 Rg8 136. Rc1 Rb8 137. Rf1 Kh7 138. Rf7+ Kg8 139. Rc7 Ra8 140. Rc5 Kh7 141. Rc7+ Kh8 142. Rf7 Ra2 143. Rf5 Kh7 144. Rf7+ Kh8 145. Rc7 Ra8 146. Kg6 Rg8+ 147. Rg7 Rb8 148. Rh7+ Kg8 149. Rg7+ Kh8 150. Rh7+ Kg8 151. Rf7 Rb6+ 152. Rf6 Rxf6+ 153. Kxf6 Kh7 154. Kg5 Kg8 155. Kg6 Kh8 156. Kf5 Kg8 157. Kg6 Kh8 158. Kf5 Kh7 159. Kg5 Kh8 160. Kf6 Kh7 161. Kg5 * 1/2-1/2
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Fairy-Stockfish"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 e6 4. d4 cxd4 5. Nxd4 Nf6 6. Ndb5 d6 7. Bf4 e5 8. Bg5 a6 9. Na3 b5 10. Bxf6 Qxf6 11. Nd5 Qd8 12. Bxb5 axb5 13. Nxb5 Qa5+ 14. c3 Ra7 15. Nxa7 Qxa7 16. a4 Ne7 17. Ne3 Ng6 18. a5 Be7 19. b4 O-O 20. a6 Bg5 21. Nd5 Bd7 22. c4 Rc8 23. b5 Bd8 24. Qb3 Bb6 25. Nxb6 Qxb6 26. O-O d5 27. exd5 Nf4 28. Rfe1 Qg6 29. Qg3 Qd6 30. h3 Ra8 31. Qe3 Qg6 32. Qg3 Qd6 33. Qe3 Qg6 34. Qg3 Qb6 35. Rxe5 Qd4 36. Rae1 Qxc4 37. b6 Rf8 38. a7 Qb4 39. R5e4 Qxb6 40. Qxf4 Qxa7 41. Re7 Qa5 42. Qe5 Qb5 43. Kh2 h6 44. Re3 Be6 45. dxe6 Qxe5+ 46. Rxe5 fxe6 47. f3 Rf6 48. Ra7 g6 49. Rb5 Rf7 50. Rxf7 Kxf7 51. h4 Kf6 52. g4 e5 53. Rb6+ Kg7 54. Kg3 h5 55. g5 Kf7 56. Kf2 Kg7 57. Rb7+ Kf8 58. Ke3 e4 59. fxe4 Ke8 60. e5 Kf8 61. Kd4 Ke8 62. Kd5 Kd8 63. Ke6 Kc8 64. Rd7 Kb8 65. Kd6 Kc8 66. e6 Kb8 67. e7 Kc8 68. e8=Q# * 1-0
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 e6 3. Nc3 Nc6 4. d4 cxd4 5. Nxd4 Nf6 6. Qd2 Bb4 7. Nxc6 bxc6 8. a3 Nxe4 9. Qd4 Bxc3+ 10. bxc3 Qf6 11. f3 Nxc3 12. Qxf6 gxf6 13. Bb2 Nd5 14. c4 Rb8 15. Bd4 e5 16. Bxa7 Ra8 17. Bc5 Nc7 18. Bd6 Kd8 19. Kf2 Ne8 20. Bb4 d6 21. Bd3 c5 22. Bd2 Ra4 23. g3 h5 24. Bc2 Rxc4 25. Bb3 Rd4 26. Be3 Rd3 27. Bxf7 Ng7 28. Rhd1 Rxd1 29. Rxd1 Kc7 30. a4 Be6 31. Bg6 Nf5 32. a5 Nxe3 33. Kxe3 d5 34. Rb1 d4+ 35. Kd2 c4 36. Rb6 Bd5 37. Rxf6 Rb8 38. Kc1 c3 39. h4 Rb2 40. a6 Rf2 41. a7 Ra2 42. Kb1 Rxa7 43. Bd3 Ra8 44. Rf5 Kd6 45. Rf6+ Kc5 46. Rf5 Ba2+ 47. Kc2 Bc4 48. Rxe5+ Kb4 49. Re4 Ra2+ 50. Kb1 Bxd3+ 51. Kxa2 Bxe4 52. fxe4 d3 53. Kb1 Kb3 54. Kc1 d2+ 55. Kd1 Kb2 56. e5 c2+ 57. Kxd2 c1=Q+ 58. Kd3 Qe1 59. Kd4 Kc1 60. Kd5 Qxg3 61. Ke6 Qxh4 62. Kd5 Kd2 63. e6 Qe7 64. Ke5 Ke3 65. Kd5 Kf4 66. Kc4 h4 67. Kd5 h3 68. Kc4 h2 69. Kb3 h1=Q 70. Kc3 Qc1+ 71. Kd3 Qea3+ 72. Kd4 Qcc5# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "GNU Chess"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 b5 6. Bf1 Nd4 7. c3 Nxd5 8. Nxf7 Kxf7 9. cxd4 exd4 10. Bxb5 Qe7+ 11. Kf1 Qe5 12. Bc4 c6 13. d3 Be7 14. Nd2 Rf8 15. Qe2 Qxe2+ 16. Kxe2 Re8 17. Ne4 Kg6 18. Bd2 Rb8 19. Rab1 Bd7 20. Rhc1 Bd6 21. g3 Rb7 22. f3 Rb6 23. a3 Be7 24. b4 Be6 25. h4 h6 26. Kf2 Rbb8 27. Bb3 Rb6 28. Nc5 Bf5 29. Re1 Reb8 30. Rxe7 Nxe7 31. g4 Bc8 32. Bf4 Ra8 33. h5+ Kh7 34. Re1 Nd5 35. Bxd5 cxd5 36. Re7 Kg8 37. Be5 g5 38. Rg7+ Kf8 39. Rc7 Ke8 40. Bxd4 a5 41. bxa5 Rb5 42. Rh7 Rbxa5 43. Rxh6 Rxa3 44. Rg6 Ra2+ 45. Kg3 Rb8 46. h6 Rb1 47. h7 Rh1 48. h8=Q+ Rxh8 49. Bxh8 Ke7 50. Bd4 Re2 51. Rg7+ Kd6 52. Rxg5 Ra2 53. Rg6+ Ke7 54. Rc6 Ra8 55. Bf6+ Kf7 56. Bh4 Kg7 57. Rc7+ Kf8 58. Bf6 Rb8 59. Kh4 Ra8 60. f4 Rb8 61. Kg5 Kg8 62. Be5 Ra8 63. f5 Rb8 64. Rg7+ Kf8 65. Rd7 Ke8 66. Rh7 Rb6 67. Rh8+ Kf7 68. Rxc8 d4 69. Rc7+ Ke8 70. f6 Rc6 71. Rxc6 Kf7 72. Rc7+ Kf8 73. Kg6 Ke8 74. Rc8# * 1-0
+
+[Event "Gambit Arena"]
+[White "GNU Chess"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nc3 Nc6 4. Bb5 Bb4 5. d3 Nd4 6. Nxd4 exd4 7. a3 Bxc3+ 8. bxc3 c6 9. Bc4 d5 10. exd5 cxd5 11. Bb5+ Kf8 12. O-O dxc3 13. Bf4 Qa5 14. Qb1 a6 15. Qb4+ Qxb4 16. axb4 Ke7 17. d4 Bf5 18. Rfe1+ Kd8 19. Ba4 Bd7 20. Bb3 Re8 21. Be5 Re6 22. Bxf6+ Rxf6 23. Bxd5 Rb6 24. Bxf7 Rxb4 25. d5 Rb2 26. Rac1 a5 27. f4 a4 28. Bg8 Bf5 29. Bf7 Ra6 30. Re8+ Kd7 31. Rg8 Kd6 32. Be6 Bxe6 33. dxe6 Kxe6 34. Rxg7 a3 35. Re1+ Kd6 36. Rd1+ Kc5 37. Rc7+ Rc6 38. Rxh7 a2 39. Re7 Rxc2 40. Rxb7 Rb2 41. Ra7 c2 42. Rc1 Rb1 43. Kf2 Rxc1 44. Rxa2 Rf1+ 45. Kxf1 c1=Q+ 46. Ke2 Qc4+ 47. Kf3 Qxa2 48. f5 Qd5+ 49. Kf2 Qxf5+ 50. Kg1 Kd5 51. h4 Rc2 52. Kh2 Qf2 53. Kh1 Qxg2# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "GNU Chess"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 Nf6 4. Bb5 Nd4 5. e5 Nxb5 6. Nxb5 Nd5 7. O-O a6 8. c4 axb5 9. cxd5 d6 10. d4 c4 11. Re1 Bf5 12. Bf4 e6 13. dxe6 fxe6 14. d5 dxe5 15. Bg5 Qc7 16. dxe6 h6 17. Rxe5 Bd3 18. e7 hxg5 19. exf8=Q+ Kxf8 20. Qd2 Rh6 21. Rae1 Qc6 22. Nxg5 b6 23. Qe3 Rf6 24. Re6 Rxe6 25. Nxe6+ Kg8 26. Qd4 Qb7 27. Nd8 Rxd8 28. Qxd8+ Kh7 29. Qh4+ Kg8 30. Qh5 g6 31. Re8+ Kf7 32. Qh8 Qe7 33. Rxe7+ Kxe7 34. Qe5+ Kd7 35. h4 Kc6 36. Qe6+ Kc7 37. f3 b4 38. Qe7+ Kc6 39. Kh2 Kb5 40. Qd6 Ka6 41. Qxb4 Kb7 42. b3 c3 43. Qxc3 Bf5 44. Kg3 Bb1 45. Kf4 b5 46. Kg5 Kb6 47. a3 Kb7 48. g4 Ka8 49. Qc7 Ba2 50. Kxg6 b4 51. Qa5+ Kb7 52. Qxb4+ Kc6 53. Kf6 Bb1 54. Qc4+ Kb7 55. b4 Kb8 56. g5 Bh7 57. h5 Bb1 58. b5 Ba2 59. Qc6 Bd5 60. Qxd5 Kc7 61. h6 Kb6 62. Qc6+ Ka7 63. h7 Kb8 64. h8=R+ Ka7 65. Ra8# * 1-0
+
+[Event "Gambit Arena"]
+[White "GNU Chess"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nc3 Nc6 3. Nf3 g6 4. Bc4 Bg7 5. O-O d6 6. Re1 a6 7. d3 b5 8. Bd5 Bd7 9. e5 dxe5 10. Ng5 Nh6 11. Qf3 Nd4 12. Bxf7+ Kf8 13. Qd5 Qc8 14. a4 Bf6 15. Be6 Bxe6 16. Nxe6+ Nxe6 17. Bxh6+ Kf7 18. axb5 axb5 19. Nxb5 g5 20. h4 gxh4 21. Na7 Qg8 22. Nc6 Rxa1 23. Rxa1 Qg6 24. Be3 Rg8 25. Ra7 e4 26. g3 hxg3 27. f3 Re8 28. dxe4 h5 29. f4 Qg4 30. f5 Kg7 31. fxe6 h4 32. e5 Bg5 33. Bxc5 Qe2 34. Nxe7 Rxe7 35. Ra1 h3 36. Rd1 Qh2+ 37. Kf1 g2+ 38. Ke1 Bh4+ 39. Kd2 g1=Q+ 40. Kc1 Qgg2 41. Qc4 Qe2 42. Qxe2 Qxe2 43. Bxe7 Bxe7 44. Rh1 Qe4 45. Rf1 h2 46. Rf7+ Kg6 47. Rf1 Qe2 48. Rh1 Qe4 49. Rf1 Qxe5 50. Kb1 Bf6 51. c3 Qxe6 52. Rc1 Bg5 53. Rf1 Qe2 54. Rh1 Qe4+ 55. Ka2 Qxh1 56. Ka3 Qa8+ 57. Kb4 h1=Q 58. Kb3 Qhb7+ 59. Kc2 Qe4+ 60. Kd1 Qa1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Maia 1100"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7 Kxf7 7. Qf3+ Ke8 8. Bxd5 Nd4 9. Qf7# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1100"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. d3 Nf6 6. Be2 Be7 7. O-O d5 8. Nc3 d4 9. Ne4 O-O 10. c3 c5 11. cxd4 cxd4 12. Nxf6+ Bxf6 13. b3 Re8 14. Bb2 Nc6 15. Re1 Be6 16. Rc1 Nb4 17. a3 Na2 18. Ra1 Nc3 19. Qd2 Bxb3 20. Bxc3 dxc3 21. Qc1 c2 22. Nd2 Bxa1 23. Nxb3 Bc3 24. Qxc2 Bxe1 25. Kf1 Rc8 26. Qd1 Bc3 27. d4 Kh8 28. Nc5 Qxd4 29. Qxd4 Bxd4 30. Nxb7 Rc1+ 31. Bd1 Rxd1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Maia 1100"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 e6 4. d4 cxd4 5. Nxd4 Nf6 6. Ndb5 a6 7. Nd6+ Bxd6 8. Qxd6 Qe7 9. Bf4 Qxd6 10. Bxd6 Nd4 11. O-O-O Nc6 12. f3 b5 13. a4 b4 14. Nb1 a5 15. Bb5 Bb7 16. Nd2 Nd4 17. Nc4 Ne2+ 18. Kb1 Rc8 19. Nxa5 Bc6 20. Nxc6 dxc6 21. Bxe2 c5 22. Bb5+ Nd7 23. a5 c4 24. Bxb4 Rd8 25. Rxd7 Rxd7 26. Rd1 Kd8 27. Rxd7+ Kc8 28. Rxf7 Rd8 29. Bxc4 Rd1+ 30. Ka2 Rd4 31. Bxe6+ Kd8 32. Ka3 Ke8 33. Rf8# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1100"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 a6 5. Nc3 b5 6. Bd3 Bb7 7. O-O Nc6 8. Nxc6 Bxc6 9. Be3 b4 10. Ne2 Nf6 11. c3 Qb8 12. cxb4 Bxb4 13. a3 Bd6 14. b4 Bxh2+ 15. Kh1 Be5 16. Rc1 Ng4 17. g3 Nxe3 18. fxe3 O-O 19. Rg1 Qb6 20. Nf4 Qxe3 21. Re1 Qxg3 22. Nh5 Qh2# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Maia 1500"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Nxd5 6. Nxf7 Kxf7 7. Qf3+ Qf6 8. Bxd5+ Be6 9. Bxc6 bxc6 10. Qxc6 Bd6 11. Nc3 Rhf8 12. Ne4 Qe7 13. O-O Kg8 14. b3 Bd7 15. Qc4+ Kh8 16. Qe2 Bc6 17. d3 Bxe4 18. dxe4 Rf6 19. Bg5 Rg6 20. Bxe7 Bxe7 21. g3 Rf8 22. Rad1 Bh4 23. Kh1 Bf6 24. f4 exf4 25. Rxf4 h6 26. e5 Re8 27. Qh5 Rg5 28. Qxe8+ Kh7 29. exf6 gxf6 30. Rd7+ Rg7 31. Rxg7+ Kxg7 32. Rg4+ Kh7 33. Qg8# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1500"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nc3 Nc6 4. Bc4 Nxe4 5. Nxe4 d5 6. Bb5 dxe4 7. Nxe5 Qg5 8. Nxc6 Qxb5 9. Nd4 Qg5 10. O-O Bh3 11. g3 O-O-O 12. Re1 Rxd4 13. d3 Qf5 14. Be3 Rd8 15. Bxa7 Qa5 16. Be3 exd3 17. cxd3 Bb4 18. Re2 Qd5 19. f3 Qxd3 20. Qxd3 Rxd3 21. a3 Rxe3 22. Rxe3 Bc5 23. Kf2 Re8 24. Re1 Bd7 25. b4 Ba7 26. Kg2 Rxe3 27. Rxe3 Bxe3 28. f4 Bc1 29. a4 Bxa4 30. Kf3 Bd2 31. Ke2 Bxb4 32. Kd3 Bb5+ 33. Kd4 Kd7 34. h4 Be2 35. Ke3 Bg4 36. Ke4 Be1 37. f5 Bxg3 38. h5 Bxh5 39. Kd5 f6 40. Kc5 Bg4 41. Kd5 Bxf5 42. Kc5 Be5 43. Kd5 Bd3 44. Kc5 Bc3 45. Kd5 g5 46. Kc5 b6+ 47. Kd5 c6# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Maia 1500"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 e6 4. d4 cxd4 5. Nxd4 Nf6 6. Ndb5 a6 7. Nd6+ Bxd6 8. Qxd6 Qe7 9. Bf4 Qxd6 10. Bxd6 Nd4 11. O-O-O Nc6 12. f3 b5 13. a4 b4 14. Nb1 a5 15. Bb5 Bb7 16. Nd2 Nd4 17. Nc4 Nxb5 18. axb5 Rc8 19. Nxa5 Ba8 20. b3 Rc3 21. Rhe1 Kd8 22. Nc4 Ne8 23. Bxb4 Rxc4 24. bxc4 Nc7 25. Rd6 Ne8 26. Rd3 Nc7 27. Red1 d5 28. cxd5 Nxb5 29. dxe6+ Ke8 30. Rd8# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1500"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 a6 5. Nc3 b5 6. Bd3 Bb7 7. O-O Nc6 8. Nxc6 Bxc6 9. Be3 b4 10. Ne2 Nf6 11. e5 Ng4 12. Bf4 Qa5 13. Nd4 Nxe5 14. Nxc6 Nxc6 15. Qf3 h5 16. Be4 d5 17. Bd3 Be7 18. Rfe1 Bf6 19. Qxd5 Qxd5 20. Be4 Qd7 21. Rad1 Qc8 22. Rd6 Ne7 23. Bxa8 Qxa8 24. Red1 Nd5 25. Bg3 Bxb2 26. c4 bxc3 27. Be5 c2 28. Bxb2 cxd1=Q# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Maia 1900"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Na5 6. Bb5+ c6 7. dxc6 bxc6 8. Bd3 h6 9. Ne4 Be7 10. Nxf6+ Bxf6 11. Nc3 O-O 12. O-O c5 13. Be4 Rb8 14. d3 Be6 15. b3 Qd4 16. Bd2 Rfd8 17. Ne2 Qd6 18. Bxa5 Rd7 19. Bc3 Rbd8 20. Ng3 g6 21. Bxg6 fxg6 22. Ne4 Qe7 23. Nxf6+ Qxf6 24. Re1 Rd5 25. Re3 Rf8 26. Qe2 Bf5 27. Re1 Re8 28. Bxe5 Rdxe5 29. Rxe5 Rxe5 30. Qxe5 Qg5 31. Qe8+ Kg7 32. Re7+ Kf6 33. Rf7# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1900"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. d4 d5 6. Bd3 Bd6 7. O-O O-O 8. c4 c6 9. Nc3 Nxc3 10. bxc3 dxc4 11. Bxc4 Nd7 12. Bg5 Qa5 13. Qd3 Nb6 14. Bb3 Bf5 15. Qd2 Nd5 16. Rac1 h6 17. Bxh6 gxh6 18. Qxh6 Bf4 19. Qh4 Bxc1 20. Rxc1 Qd8 21. Qg3+ Kh8 22. Ne5 Qf6 23. c4 Qh6 24. cxd5 Qxc1+ 25. Bd1 Qxd1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Maia 1900"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 g6 4. d4 cxd4 5. Nxd4 Bg7 6. Be3 Nf6 7. Nxc6 bxc6 8. e5 Nd5 9. Nxd5 cxd5 10. Qxd5 Rb8 11. O-O-O O-O 12. Bxa7 Rb7 13. Bd4 Qc7 14. b3 d6 15. exd6 exd6 16. Bxg7 Kxg7 17. Bc4 Be6 18. Qd4+ Kg8 19. Bxe6 fxe6 20. Qxd6 Rc8 21. Qxc7 Rbxc7 22. Rd2 Kf7 23. Re1 Ra8 24. Kb2 Rca7 25. Ra1 Kf6 26. a3 e5 27. Re2 Kf5 28. a4 e4 29. Rd1 Rb7 30. Rd5+ Kf4 31. Rd4 Re7 32. Ka3 Rae8 33. b4 Rc7 34. b5 Rc3+ 35. Kb2 Rc5 36. Kb3 Rce5 37. c4 Kf5 38. a5 e3 39. Rd3 exf2 40. Rxf2+ Kg5 41. Rfd2 h5 42. a6 Re1 43. Rd1 Rxd1 44. Rxd1 Re2 45. a7 Re3+ 46. Kb4 Re8 47. Ra1 Ra8 48. b6 Kf6 49. b7 Re8 50. a8=Q Rxa8 51. bxa8=Q Kg5 52. Qf8 h4 53. Ra5+ Kg4 54. Qf3# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1900"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 a6 5. Nc3 b5 6. Be3 Bb7 7. Bd3 Nc6 8. O-O Nf6 9. f4 Bc5 10. e5 Bxd4 11. exf6 Bxe3+ 12. Kh1 g6 13. Ne4 d5 14. Ng5 Qxf6 15. Qe2 Bc5 16. Rae1 Be7 17. c3 O-O 18. Rf3 h6 19. Rh3 hxg5 20. fxg5 Qxg5 21. Rf1 Kg7 22. Rff3 e5 23. Rfg3 Qc1+ 24. Qf1 Qxf1+ 25. Bxf1 Rad8 26. Be2 Bc8 27. Bg4 Bxg4 28. Rxg4 f5 29. Rgg3 f4 30. Rg4 d4 31. cxd4 Rxd4 32. Rc3 Rd1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Leela"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Ng5 d5 5. exd5 Na5 6. Bb5+ c6 7. dxc6 bxc6 8. Bd3 h6 9. Ne4 Be7 10. Nxf6+ Bxf6 11. Nc3 O-O 12. O-O c5 13. Be4 Rb8 14. d3 Be6 15. b3 Qd4 16. Bd2 Rfd8 17. Ne2 Qd6 18. Bxa5 Rd7 19. Bc3 Rbd8 20. Ng3 g6 21. Bxg6 fxg6 22. Ne4 Qe7 23. Nxf6+ Qxf6 24. Re1 Rd5 25. Re3 Rf8 26. Qe2 Bf5 27. Re1 Re8 28. Bxe5 Rdxe5 29. Rxe5 Rxe5 30. Qxe5 Qg5 31. Qe8+ Kg7 32. Re7+ Kf6 33. Rf7# * 1-0
+
+[Event "Gambit Arena"]
+[White "Leela"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. d4 d5 6. Bd3 Bd6 7. O-O O-O 8. c4 c6 9. Nc3 Nxc3 10. bxc3 dxc4 11. Bxc4 Nd7 12. Bg5 Qa5 13. Qd3 Nb6 14. Bb3 Bf5 15. Qd2 Nd5 16. Rac1 h6 17. Bxh6 gxh6 18. Qxh6 Bf4 19. Qh4 Bxc1 20. Rxc1 Qd8 21. Qg3+ Kh8 22. Ne5 Qf6 23. c4 Qh6 24. cxd5 Qxc1+ 25. Bd1 Qxd1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Leela"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 g6 4. d4 cxd4 5. Nxd4 Bg7 6. Be3 Nf6 7. Nxc6 bxc6 8. e5 Nd5 9. Nxd5 cxd5 10. Qxd5 Rb8 11. O-O-O O-O 12. Bxa7 Rb7 13. Bd4 Qc7 14. b3 d6 15. exd6 exd6 16. Bxg7 Kxg7 17. Bc4 Be6 18. Qd4+ Kg8 19. Bxe6 fxe6 20. Qxd6 Rc8 21. Qxc7 Rbxc7 22. Rd2 Kf7 23. Re1 Ra8 24. Kb2 Rca7 25. Ra1 Kf6 26. a3 e5 27. Re2 Kf5 28. a4 e4 29. Rd1 Rb7 30. Rd5+ Kf4 31. Rd4 Re7 32. Ka3 Rae8 33. b4 Rc7 34. b5 Rc3+ 35. Kb2 Rc5 36. Kb3 Rce5 37. c4 Kf5 38. a5 e3 39. Rd3 exf2 40. Rxf2+ Kg5 41. Rfd2 h5 42. a6 Re1 43. Rd1 Rxd1 44. Rxd1 Re2 45. a7 Re3+ 46. Kb4 Re8 47. Ra1 Ra8 48. b6 Kf6 49. b7 Re8 50. a8=Q Rxa8 51. bxa8=Q Kg5 52. Qf8 h4 53. Ra5+ Kg4 54. Qf3# * 1-0
+
+[Event "Gambit Arena"]
+[White "Leela"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 a6 5. Nc3 b5 6. Be3 Bb7 7. Bd3 Nc6 8. O-O Nf6 9. f4 Bc5 10. e5 Bxd4 11. exf6 Bxe3+ 12. Kh1 g6 13. Ne4 d5 14. Ng5 Qxf6 15. Qe2 Bc5 16. Rae1 Be7 17. c3 Bc8 18. Nf3 O-O 19. Ne5 Nxe5 20. fxe5 Qg7 21. Rf3 Ra7 22. Ref1 d4 23. cxd4 Rd7 24. Qe4 Bb7 25. Qg4 Bxf3 26. Qxf3 Rxd4 27. Qe3 Rd5 28. Be4 Qxe5 29. Qf3 Rdd8 30. Bb7 a5 31. h3 Bd6 32. g3 Qxg3 33. Qxg3 Bxg3 34. Kg2 Bh4 35. Ba6 Rd2+ 36. Kf3 Rxb2 37. Kg4 Rb4+ 38. Kf3 Rd8 39. a3 Rb3+ 40. Kg4 f6 41. Kxh4 Rd4+ 42. Rf4 Rxf4# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Sunfish"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 Bd6 4. d4 Nxe4 5. Qg4 Qe7 6. Qxg7 Qf8 7. Qg4 f5 8. Qh5+ Ke7 9. Bc4 Nc6 10. Nc3 Nxd4 11. Nxe4 Nxc2+ 12. Kd1 Bxe5 13. Bg5+ Bf6 14. Nxf6 h6 15. Nd5+ Ke6 16. Qg6+ Ke5 17. Bf6+ Qxf6 18. Qxf6+ Ke4 19. f3# * 1-0
+
+[Event "Gambit Arena"]
+[White "Sunfish"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nc3 Nc6 4. Bb5 Bb4 5. O-O O-O 6. d3 Bxc3 7. bxc3 d6 8. Bb2 Bg4 9. h3 Bh5 10. Re1 a6 11. Bc4 Na5 12. Bb3 c5 13. d4 Bxf3 14. Qxf3 c4 15. Ba4 b5 16. dxe5 dxe5 17. Rad1 Qe7 18. Bb3 cxb3 19. axb3 Rfe8 20. Qf5 Qc7 21. f3 h6 22. g3 Qb6+ 23. Kg2 g6 24. Rd6 Qxd6 25. Rd1 Qc6 26. Rd6 Qxd6 27. Qxf6 Qxf6 28. Bc1 Qh8 29. Be3 Rab8 30. Kg1 Nc6 31. f4 exf4 32. Bxf4 Kh7 33. Bxb8 Rxb8 34. c4 Rd8 35. cxb5 Rd2 36. c3 Qxc3 37. bxc6 Qa1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Sunfish"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 Nf6 4. Bb5 a6 5. Bxc6 dxc6 6. O-O Bg4 7. h3 Bxf3 8. Qxf3 Qd4 9. a4 O-O-O 10. d3 e5 11. a5 Kb8 12. Na4 c4 13. Be3 Qd6 14. dxc4 Qb4 15. b3 Bd6 16. Rfd1 Be7 17. Bb6 Rxd1+ 18. Rxd1 Re8 19. Qg3 Bf8 20. Qxe5+ Ka8 21. Qxe8+ Nxe8 22. Rd8# * 1-0
+
+[Event "Gambit Arena"]
+[White "Sunfish"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 e6 3. Nc3 Nc6 4. Bb5 Nd4 5. O-O Nxb5 6. Nxb5 a6 7. Nc3 b5 8. d4 cxd4 9. Qxd4 Bb7 10. Bg5 f6 11. Be3 Rc8 12. Qa7 Qc7 13. Bb6 Qb8 14. Qxb8 Rxb8 15. Ba7 Ra8 16. Bd4 b4 17. Na4 Bxe4 18. Nb6 Rb8 19. Rfe1 Bxf3 20. gxf3 Nh6 21. Nd5 Nf5 22. Bb6 Kf7 23. Nxf6 gxf6 24. Ba5 Rb5 25. Bd8 Bd6 26. Bxf6 Kxf6 27. h3 Rc8 28. Rac1 Rbc5 29. c4 Rxc4 30. Rxc4 Rxc4 31. a3 bxa3 32. bxa3 Bxa3 33. Rb1 Rc1+ 34. Rxc1 Bxc1 35. Kh1 Bf4 36. Kg2 Nh4+ 37. Kg1 a5 38. Kh1 Kf5 39. Kg1 Nxf3+ 40. Kh1 Ke4 41. Kg2 Nh4+ 42. Kg1 a4 43. Kf1 Kd3 44. f3 Bg3 45. f4 a3 46. Kg1 a2 47. f5 a1=R# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Stash"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. d4 d5 6. Bd3 c5 7. c4 cxd4 8. O-O Nf6 9. cxd5 Nxd5 10. Bb5+ Nc6 11. Qxd4 Be6 12. Nc3 Qd7 13. Qa4 Nxc3 14. bxc3 a6 15. Ne5 Qd5 16. c4 Qxe5 17. Bxc6+ Ke7 18. Ba3+ Kf6 19. Rae1 Qc3 20. Re3 Qd4 21. Rf3+ Bf5 22. Qc2 Qg4 23. Qc3+ Kg6 24. h3 Qg5 25. Bc1 bxc6 26. Bxg5 h6 27. Rxf5 hxg5 28. Qd3 Kh7 29. Kh1 Kg8 30. Qd7 Rh4 31. Qxf7+ Kh8 32. Rxg5 Rh7 33. Rd1 Rb8 34. Qf4 Re8 35. Re5 Rc8 36. c5 g6 37. Qf6+ Rg7 38. Re4 g5 39. Qh6+ Rh7 40. Qxg5 Bxc5 41. Rg4 Bd4 42. Rdxd4 Rf7 43. Qh5+ Rh7 44. Qe5+ Rg7 45. Qxg7# * 1-0
+
+[Event "Gambit Arena"]
+[White "Stash"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nc3 Nc6 4. Bc4 Nxe4 5. Nd5 Nd6 6. Qe2 Nxc4 7. Qxc4 d6 8. d4 Be6 9. O-O Qd7 10. Qb3 Na5 11. Qc3 Nc6 12. Qb3 Na5 13. Qc3 Bxd5 14. Qxa5 Qc6 15. dxe5 Bxf3 16. gxf3 b6 17. Qe1 O-O-O 18. Bf4 Qxf3 19. Qe3 Qxe3 20. fxe3 dxe5 21. Bxe5 f6 22. Bc3 Bc5 23. Rf3 Rhe8 24. Kf2 Re4 25. Re1 Rde8 26. Bd2 Rh4 27. Rh1 Bd6 28. b3 Re6 29. h3 g6 30. Bc3 f5 31. Bd4 Bb4 32. Rf4 Rh5 33. Ba1 Bd6 34. Rf3 Re4 35. Rd1 Kd7 36. Bc3 Ke6 37. Ke2 Reh4 38. Rh1 Rg5 39. Kf2 Rgh5 40. a4 Re4 41. Rd1 Reh4 42. Rh1 a6 43. Ke2 Re4 44. Bd2 Rg5 45. Kf2 Bc5 46. Re1 Kd6 47. Kf1 Ke6 48. Re2 Rh5 49. Kg2 Bd6 50. Bc3 Rg5+ 51. Kf2 Rh5 52. Re1 Kd7 53. Rf1 Ke6 54. Ke2 Reh4 55. Rh1 Re4 56. Bd2 a5 57. Be1 Rg5 58. Kf1 f4 59. exf4 Bxf4 60. Kf2 Rd5 61. Rd3 Rxd3 62. cxd3 Re5 63. Bc3 Rf5 64. Ke2 Rc5 65. Rf1 Rxc3 66. Rxf4 Rxb3 67. Re4+ Kd7 68. Rf4 Rb4 69. Rf7+ Kc8 70. Rxh7 Rxa4 71. Kd2 Kb7 72. Kc3 Ra1 73. Rh6 Rg1 74. h4 b5 75. Rh7 a4 76. h5 gxh5 77. Rxh5 Rb1 78. Kc2 Rb4 79. Kc3 Rb3+ 80. Kc2 Rb4 81. Kc3 Rb3+ 82. Kc2 c6 83. d4 Rb4 84. d5 cxd5 85. Rxd5 Kb6 86. Rd8 Rb3 87. Ra8 Kc5 88. Rh8 Kb4 89. Rb8 Ka3 90. Rf8 Rb2+ 91. Kc1 b4 92. Kd1 Rg2 93. Ke1 b3 94. Kf1 Rc2 95. Rf3 Ka2 96. Rf4 a3 97. Rf2 Rxf2+ 98. Kxf2 b2 99. Kf3 Kb3 100. Kg4 a2 101. Kf5 b1=Q+ 102. Kf6 a1=Q+ 103. Kg5 Qe5+ 104. Kg4 Qbf5+ 105. Kh4 Qe1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Stash"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 e6 4. d4 cxd4 5. Nxd4 Bc5 6. Ndb5 a6 7. Nd6+ Ke7 8. Bf4 e5 9. Bg5+ f6 10. Be3 Bxd6 11. Nd5+ Kf8 12. Nb6 Qe7 13. Nxa8 Bc5 14. Qd2 Bxe3 15. Qxe3 h5 16. O-O-O d6 17. Nb6 Bg4 18. f3 Be6 19. Bc4 Nh6 20. Bxe6 Qxe6 21. Kb1 h4 22. Qd3 Nf7 23. Rhf1 Rh5 24. Rd2 Rg5 25. a3 Kg8 26. Nd5 Nd4 27. Rfd1 f5 28. Rf2 h3 29. gxh3 Rh5 30. f4 fxe4 31. Qxe4 Nf5 32. fxe5 dxe5 33. Rxf5 Rxf5 34. Qxf5 Qxf5 35. Ne7+ Kh7 36. Nxf5 Kg6 37. Ne3 b5 38. c4 bxc4 39. h4 Nh6 40. Rg1+ Kh5 41. Rxg7 Kxh4 42. Rg6 Kh5 43. Rg7 Kh4 44. a4 Kh5 45. Kc2 Kh4 46. Kc3 Kh5 47. a5 Kh4 48. Kxc4 e4 49. Kc5 Kh5 50. b4 Nf7 51. Rxf7 Kg6 52. Rf1 Kh6 53. Kd6 Kg6 54. Ke7 Kg7 55. Rf6 Kg8 56. Rg6+ Kh8 57. h3 Kh7 58. Kf7 Kh8 59. Rh6# * 1-0
+
+[Event "Gambit Arena"]
+[White "Stash"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 e6 3. c3 d5 4. exd5 exd5 5. Bb5+ Nc6 6. O-O Bd6 7. d4 cxd4 8. Qxd4 Nf6 9. Qe3+ Be6 10. Nd4 Qc8 11. Re1 O-O 12. Nxe6 Bxh2+ 13. Kh1 fxe6 14. Qxe6+ Qxe6 15. Rxe6 Bc7 16. Bxc6 bxc6 17. Rxc6 Ng4 18. Rxc7 Rxf2 19. Kg1 Re8 20. Be3 Rxe3 21. Na3 h5 22. Kh1 Rg3 23. Rc8+ Kh7 24. Re1 Rfxg2 25. Rh8+ Kxh8 26. Re8+ Kh7 27. Rh8+ Kxh8 28. b4 Nf2# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Fruit"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. O-O Bc5 5. c3 O-O 6. d4 Bb6 7. a4 exd4 8. e5 Ne4 9. cxd4 a6 10. Bxc6 dxc6 11. Re1 Bf5 12. a5 Ba7 13. Nc3 Nxc3 14. bxc3 Qd5 15. Ra4 Rfe8 16. c4 Qd7 17. h3 h6 18. Be3 c5 19. d5 Be4 20. Bxh6 Bxf3 21. Qxf3 Qxa4 22. Qg4 g6 23. e6 Kh7 24. Bg5 Rxe6 25. Qh4+ Kg8 26. dxe6 fxe6 27. Bf6 Kf7 28. Bc3 Qd7 29. Qf6+ Kg8 30. Qh8+ Kf7 31. Qh7+ Ke8 32. Qg8+ Ke7 33. Qxa8 Qd6 34. Qxa7 Qc6 35. Qb8 b5 36. axb6 Qxb6 37. Qg8 Qd6 38. h4 g5 39. h5 Kd7 40. h6 g4 41. Qxg4 Qe7 42. h7 Qd6 43. h8=Q Qe7 44. Rd1+ Qd6 45. Qgg7+ Kc6 46. Qa8+ Kb6 47. Rb1# * 1-0
+
+[Event "Gambit Arena"]
+[White "Fruit"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nc4 Nxe4 5. Qe2 Qe7 6. d3 Nf6 7. Nc3 Nc6 8. Bf4 Qxe2+ 9. Bxe2 Be6 10. Nb5 Nd5 11. Bf3 Nxf4 12. Nxc7+ Kd7 13. Nxa8 d5 14. Ne3 d4 15. g3 dxe3 16. gxf4 exf2+ 17. Kxf2 Bd6 18. d4 Bf5 19. Rhg1 g6 20. Rad1 Bxc2 21. Rc1 Bf5 22. Rxc6 bxc6 23. Rc1 Rc8 24. Ke3 Re8+ 25. Kf2 Be4 26. Bxe4 Rxe4 27. Re1 Rxd4 28. a3 f5 29. Re3 Rxf4+ 30. Ke2 Re4 31. Rxe4 fxe4 32. Ke3 Kc8 33. h3 Kb7 34. Kxe4 Kxa8 35. Kd3 a5 36. a4 Be5 37. b3 Kb8 38. Ke4 Bc7 39. Kd4 Bd6 40. Kc4 Kc7 41. Kd4 Kd7 42. Ke4 Ke6 43. Kd4 Kf5 44. Ke3 g5 45. Kf3 h5 46. Kf2 Kf4 47. Kg2 Bc5 48. Kf1 Kf3 49. Ke1 Bb4+ 50. Kd1 Kg3 51. Ke2 Kxh3 52. Ke3 g4 53. Ke4 g3 54. Kf4 g2 55. Kf3 g1=Q 56. Ke4 Qg5 57. Kd3 Qd2+ 58. Ke4 Kg4 59. Ke5 Qf4+ 60. Ke6 Qf5# * 0-1
+
+[Event "Gambit Arena"]
+[White "Stockfish"]
+[Black "Fruit"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 Nf6 4. Bb5 Nd4 5. e5 Nxb5 6. Nxb5 Nd5 7. O-O a6 8. c4 Nb6 9. Nc3 Nxc4 10. d4 Qa5 11. Qd3 Nb6 12. d5 Qb4 13. d6 Qc4 14. Qd2 Qb4 15. b3 h5 16. Re1 e6 17. h3 f5 18. a3 Qa5 19. Qb2 Nd5 20. Nxd5 exd5 21. b4 Qb5 22. Qd2 g6 23. Qg5 Rg8 24. Qf6 g5 25. Bxg5 Rg7 26. Nh4 Qb6 27. bxc5 Qa5 28. Nxf5 Rf7 29. Qg6 Qxc5 30. Rac1 Qc4 31. Rxc4 dxc4 32. Nh6 Bxh6 33. Bxh6 c3 34. Qg8+ Rf8 35. Qxf8# * 1-0
+
+[Event "Gambit Arena"]
+[White "Fruit"]
+[Black "Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nc3 Nc6 3. Nf3 g6 4. Bc4 Bg7 5. O-O d6 6. d3 a6 7. Bf4 b5 8. Bd5 Bd7 9. e5 dxe5 10. Bxc6 Bxc6 11. Nxe5 Bb7 12. Re1 Nf6 13. Qd2 Nh5 14. Bh6 Qd4 15. Bxg7 Nxg7 16. Qe2 O-O 17. Nf3 Qf4 18. Qe5 Qxe5 19. Nxe5 Rfd8 20. a4 b4 21. Ne4 Ne6 22. Rad1 f6 23. Nc4 Kf7 24. a5 Rac8 25. Re3 Rc7 26. Rde1 Nd4 27. Nxc5 Bc8 28. c3 bxc3 29. bxc3 Nc2 30. d4 Nxe1 31. Rxe1 e5 32. Nxe5+ fxe5 33. Rxe5 Re7 34. f4 h6 35. Kf2 g5 36. g3 Bh3 37. Rxe7+ Kxe7 38. fxg5 Rf8+ 39. Ke3 hxg5 40. Nxa6 Ra8 41. Nb4 Kd6 42. c4 Rxa5 43. c5+ Ke6 44. d5+ Kf6 45. Kd4 Ra1 46. c6 Rd1+ 47. Ke3 Ke7 48. Nd3 Bf5 49. Nb4 Kd6 50. h4 Re1+ 51. Kd2 Rb1 52. Kc3 g4 53. Kc4 Rg1 54. Na6 Bc8 55. Nb4 Rxg3 56. Nc2 Rf3 57. Kd4 g3 58. Ne3 Rf4+ 59. Kc3 Rf3 60. Kd4 Rf4+ 61. Kc3 Rxh4 62. c7 Kxc7 63. Ng2 Rh2 64. Ne3 g2 65. Nxg2 Rxg2 66. Kd4 Kd6 67. Ke3 Kxd5 68. Kf3 Rg4 69. Ke3 Ke5 70. Kd3 Ba6+ 71. Kc3 Kf4 72. Kd4 Rg5 73. Kc3 Kg3 74. Kd4 Kf3 75. Kc3 Kg3 76. Kd4 Kf3 77. Kc3 Ke4 78. Kc2 Bd3+ 79. Kb2 Rb5+ 80. Ka2 Kd4 81. Ka3 Kc3 82. Ka4 Rd5 83. Ka3 Ra5# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "GNU Chess"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nf6 5. Nxc6 dxc6 6. Qxd8+ Kxd8 7. Nc3 Bd6 8. f3 Re8 9. Bd2 Be6 10. Bd3 Ke7 11. f4 Bc5 12. h3 Kf8 13. O-O-O Rad8 14. Rhe1 Bd4 15. Kb1 Kg8 16. g4 Bf2 17. Re2 Bd4 18. Rde1 c5 19. b3 c6 20. f5 Bc8 21. e5 Bxc3 22. Bxc3 Nd5 23. Bd2 Nb4 24. Bxb4 cxb4 25. Re4 Rd5 26. e6 fxe6 27. Rxb4 b5 28. Rbe4 Kf7 29. Kb2 e5 30. R4e3 Bd7 31. a4 a6 32. Be4 Rd6 33. a5 Kf6 34. h4 Rd4 35. c3 Rd2+ 36. Kc1 Rd6 37. g5+ Kf7 38. b4 Kf8 39. Bc2 c5 40. bxc5 Rd5 41. Rd3 Bc6 42. Rxd5 Bxd5 43. Rd1 Bc6 44. Rd6 Rc8 45. f6 e4 46. fxg7+ Kxg7 47. Kd2 Kf7 48. Rh6 Kg7 49. h5 Bb7 50. Rb6 Rc7 51. Bb1 Kf8 52. h6 Ke8 53. Ke3 Rf7 54. Bxe4 Bxe4 55. Kxe4 Re7+ 56. Kd5 Kf7 57. Rxa6 Re3 58. Ra7+ Kg6 59. Rg7+ Kf5 60. a6 Rxc3 61. a7 Rd3+ 62. Kc6 Rd8 63. Kxb5 Re8 64. c6 Kf4 65. Kb6 Rf8 66. c7 Re8 67. Kb7 Re1 68. g6 Rb1+ 69. Ka8 hxg6 70. Rxg6 Kf5 71. c8=Q+ Kxg6 72. Qc2+ Kxh6 73. Qxb1 Kg5 74. Kb8 Kf6 75. a8=Q Ke5 76. Qf3 Kd6 77. Qfe4 Kc5 78. Qbb4# * 1-0
+
+[Event "Gambit Arena"]
+[White "GNU Chess"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 d5 3. Nxe5 dxe4 4. Bb5+ Nd7 5. Nc3 c6 6. Nxd7 Qxd7 7. Bc4 b5 8. Bb3 Nf6 9. d3 exd3 10. O-O Be7 11. cxd3 a5 12. Re1 O-O 13. d4 a4 14. Bc2 Bd6 15. Bg5 Nd5 16. Qh5 g6 17. Nxd5 gxh5 18. Nf6+ Kg7 19. Nxd7 Bxd7 20. Be7 Bxe7 21. Rxe7 Be6 22. Be4 Rac8 23. a3 Rfd8 24. Rd1 h4 25. f4 h6 26. Kf2 Rd6 27. Ke3 Kf6 28. Rb7 Re8 29. Kf3 Bb3 30. Rc1 Bc4 31. Rc7 Rxd4 32. Bxc6 Rg8 33. Rc2 Rd3+ 34. Kf2 Rgd8 35. Be4 Rd1 36. g3 Re8 37. Bc6 Red8 38. Be4 h3 39. g4 R8d4 40. Ke3 Rd8 41. Kf2 R8d4 42. Ke3 Kg7 43. Bf5 Rd5 44. Be4 Re1+ 45. Kf3 Rd4 46. Bf5 Rf1+ 47. Kg3 Rdxf4 48. Kxh3 R1f2 49. Rc3 Rxb2 50. Rd7 Rff2 51. Kg3 Rxh2 52. Be4 Rhe2 53. Bf3 Re5 54. Kf4 Re6 55. Be4 Rf6+ 56. Bf5 Be6 57. Re7 Bxf5 58. gxf5 Rf2+ 59. Ke4 Re2+ 60. Re3 Rxe3+ 61. Kxe3 Rxf5 62. Kd4 h5 63. Re3 Kf6 64. Rh3 Kg5 65. Rg3+ Kf4 66. Rg7 h4 67. Rh7 Kg4 68. Rg7+ Rg5 69. Rh7 f5 70. Rc7 h3 71. Rc2 f4 72. Rc1 h2 73. Ke4 f3 74. Rd1 Kg3 75. Rh1 f2 76. Rb1 Kg2 77. Kf4 Rg3 78. Rc1 Rxa3 79. Ke5 f1=Q 80. Rxf1 Kxf1 81. Kd4 h1=Q 82. Kc5 Rb3 83. Kd6 a3 84. Ke5 a2 85. Kd6 a1=Q 86. Kc7 Qaa8 87. Kd6 Qhd5+ 88. Kc7 Qdc6# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "GNU Chess"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 Nf6 4. e5 Ng4 5. Bxc6 bxc6 6. h3 Nh6 7. O-O Nf5 8. Nc3 e6 9. Ne4 Be7 10. b3 O-O 11. d3 h6 12. a4 Ba6 13. Ba3 Qa5 14. g4 d5 15. exd6 Nxd6 16. Nxc5 Bc8 17. Ne5 Qc3 18. Nxc6 Bf6 19. Ra2 a5 20. b4 Ne4 21. dxe4 axb4 22. Bxb4 Qxh3 23. e5 Bg5 24. Ra3 Qh4 25. Kg2 h5 26. f4 Rd8 27. Qe2 Re8 28. fxg5 Qxg5 29. Rg3 h4 30. Rh3 f5 31. exf6 gxf6 32. Ne4 Ba6 33. c4 Bxc4 34. Qxc4 Qd5 35. Qxd5 exd5 36. Nxf6+ Kg7 37. Nxe8+ Rxe8 38. Bc3+ Kg6 39. Ne5+ Kg7 40. Rxh4 Kg8 41. Nd7 Re2+ 42. Kh1 d4 43. Rf8+ Kg7 44. Bxd4+ Kg6 45. Ne5+ Rxe5 46. Bxe5 Kg5 47. Rh7 Kxg4 48. Rg7+ Kh3 49. Rh8# * 1-0
+
+[Event "Gambit Arena"]
+[White "GNU Chess"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nc3 Nc6 3. Nf3 e6 4. Bb5 Nge7 5. O-O Ng6 6. d4 cxd4 7. Nxd4 a6 8. Be2 Be7 9. Be3 O-O 10. Qd2 Nxd4 11. Bxd4 b5 12. f4 Qc7 13. f5 Ne5 14. Kh1 b4 15. Na4 Bb7 16. Rad1 Bxe4 17. Nb6 exf5 18. Nxa8 Rxa8 19. Bd3 Ng4 20. Bg1 Nf6 21. Bd4 a5 22. Rxf5 Bxf5 23. Bxf5 Re8 24. Re1 Qd8 25. Qg5 Bd6 26. Rd1 Qe7 27. Bd3 Be5 28. Re1 d6 29. Bb5 Rd8 30. Bd3 h6 31. Qf5 Qd7 32. Bb6 Qxf5 33. Bxf5 Ra8 34. Rb1 g6 35. Bd3 Nd5 36. Bf2 Rb8 37. g3 Kg7 38. Kg2 h5 39. Bc4 Nf6 40. Bd3 d5 41. Ba7 Rb7 42. Be3 a4 43. b3 a3 44. Rd1 Ne4 45. Kf3 Nc3 46. Ra1 f6 47. Kg2 f5 48. Kf3 Kf6 49. Kg2 Ne4 50. Rf1 g5 51. Re1 Rh7 52. Rf1 h4 53. g4 h3+ 54. Kg1 f4 55. Bb6 Rh4 56. Be2 Rh8 57. Re1 Nc3 58. Bc5 Nxa2 59. Bd3 Ra8 60. Kf1 Nc3 61. Be7+ Kxe7 62. Rxe5+ Kd6 63. Re1 Kc5 64. Ra1 Kd4 65. Kf2 Re8 66. Rg1 Ne4+ 67. Kf3 Kc3 68. Rd1 Kb2 69. Bb5 Nc3 70. Rf1 Re3+ 71. Kf2 Nxb5 72. Rd1 Nc3 73. Rf1 a2 74. Kg1 d4 75. Kf2 a1=Q 76. Rxa1 Kxa1 77. Kf1 Nd1 78. c3 dxc3 79. Kg1 Re1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Maia 1100"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nf6 5. Nxc6 bxc6 6. e5 Nd5 7. c4 Nb6 8. Bd3 d6 9. O-O dxe5 10. Nc3 Bb4 11. Qf3 O-O 12. Re1 Re8 13. Be4 Nxc4 14. a3 Bxc3 15. Qxc3 Nd6 16. Bxc6 Bd7 17. Bxa8 Qxa8 18. Qxc7 Qd5 19. Qxd7 h6 20. Be3 Qe6 21. Qxe6 Rxe6 22. Bxa7 Nc4 23. b3 Nd2 24. b4 Nb3 25. Rab1 Nd2 26. Rbc1 Nb3 27. Rc8+ Kh7 28. b5 Nd4 29. b6 Nb5 30. Rb1 Nxa3 31. Rb3 Nc2 32. b7 Nd4 33. Rb6 Rxb6 34. Bxb6 Ne2+ 35. Kf1 Nd4 36. Bxd4 exd4 37. Ke2 Kg6 38. Kd3 f6 39. Kxd4 f5 40. Rf8 Kg5 41. Ke5 g6 42. f3 h5 43. b8=Q h4 44. Rh8 f4 45. Qd8# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1100"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 d5 3. Nxe5 dxe4 4. Bc4 Nh6 5. O-O Qd4 6. Qh5 g6 7. Qg5 Bg7 8. Nxf7 Nxf7 9. Qb5+ Nc6 10. c3 Qe5 11. Qxe5+ Nfxe5 12. Bd5 Bf5 13. d4 exd3 14. Bf4 O-O-O 15. Bxc6 Nxc6 16. Nd2 Bf6 17. Rfe1 g5 18. Bg3 Rhe8 19. Rxe8 Rxe8 20. h3 Re2 21. Rd1 h5 22. Kf1 h4 23. Bh2 Be6 24. Nf3 Rxb2 25. Rxd3 Bc4 26. Ne1 Rd2 27. Nf3 Bxd3+ 28. Ke1 Re2+ 29. Kd1 Rxf2 30. Ne1 Be2+ 31. Kd2 Bb5+ 32. Ke3 Re2+ 33. Kf3 Bxc3 34. Nd3 Bxd3 35. Kg4 Rxg2+ 36. Kf3 Rxh2 37. Kg4 Bd2 38. Kh5 Rf2 39. Kg4 Be2# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Maia 1100"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 bxc6 5. d3 e6 6. O-O Nf6 7. e5 Nd5 8. Nbd2 Be7 9. Ne4 O-O 10. c4 Nb4 11. a3 d5 12. exd6 Bxd6 13. axb4 cxb4 14. d4 Bb7 15. Qd3 c5 16. Nfg5 cxd4 17. Nf6+ Qxf6 18. Qxh7# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1100"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bc4 e6 4. O-O d5 5. exd5 exd5 6. Bb5 Be7 7. Re1 Be6 8. d4 Nf6 9. Ne5 Qb6 10. Bxc6+ bxc6 11. Bg5 cxd4 12. b3 O-O 13. Nd2 c5 14. Ndf3 Rfe8 15. Bxf6 Bxf6 16. Nd3 Bf5 17. Rxe8+ Rxe8 18. Nf4 d3 19. Nxd5 dxc2 20. Nxb6 cxd1=Q+ 21. Rxd1 axb6 22. h3 Bg6 23. Rd6 b5 24. Rb6 c4 25. Rxb5 c3 26. Rc5 c2 27. Kh2 Bb2 28. Rxc2 Bxc2 29. Nd2 Be5+ 30. g3 Bd4 31. Nf3 Bxf2 32. Kg2 Bb6 33. h4 Re2+ 34. Kh3 Bf5+ 35. g4 Be4 36. Ne5 Bc7 37. Nc4 Bg2# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Maia 1500"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 5. Nb3 Bb6 6. Qg4 Qf6 7. Qe2 d6 8. Nc3 Be6 9. Nd5 Bxd5 10. exd5+ Nge7 11. dxc6 O-O 12. cxb7 Rab8 13. Bd2 Qxb2 14. Qf3 Qxc2 15. Ba6 Rfe8 16. O-O Ng6 17. Rfc1 Qe4 18. Qxe4 Rxe4 19. a4 Re2 20. Bxe2 Rxb7 21. a5 Bxf2+ 22. Kxf2 Rxb3 23. Rxc7 h6 24. Bc4 Rb2 25. Ra2 Rxa2 26. Bxf7+ Kh7 27. Bxa2 Ne5 28. Bb1+ Ng6 29. Bc3 d5 30. Rxg7+ Kh8 31. Rxg6+ Kh7 32. Rg3# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1500"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 d5 3. exd5 Qxd5 4. Nc3 Qe6 5. d3 Nc6 6. Be2 Nf6 7. O-O Be7 8. Re1 O-O 9. Ng5 Qd7 10. Nce4 Nd5 11. Nf3 Rd8 12. c4 Ndb4 13. a3 Nxd3 14. Bxd3 Qxd3 15. Qxd3 Rxd3 16. b4 f5 17. Nc5 Bxc5 18. bxc5 e4 19. Nd2 b6 20. cxb6 axb6 21. f3 Nd4 22. fxe4 Nc2 23. Ra2 Nxe1 24. exf5 Rc3 25. Bb2 Rc2 26. f6 Nd3 27. fxg7 Rxd2 28. h3 Rxb2 29. Rxb2 Nxb2 30. Kf2 Nxc4 31. g4 Rxa3 32. h4 Bxg4 33. h5 Bxh5 34. Kg2 b5 35. Kf2 b4 36. Ke1 b3 37. Kf2 b2 38. Ke1 b1=Q+ 39. Kf2 Qb2+ 40. Ke1 Ra1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Maia 1500"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 e6 4. O-O a6 5. Bxc6 bxc6 6. d3 Nf6 7. e5 Nd5 8. Nbd2 Be7 9. Ne4 O-O 10. c4 Nb4 11. a3 d5 12. exd6 Bxd6 13. axb4 cxb4 14. d4 Bc7 15. Bd2 a5 16. Bxb4 Re8 17. Bc3 Bb7 18. Nc5 Bc8 19. Qa4 Bd7 20. Rfe1 Bb6 21. Nxd7 Qxd7 22. Ne5 Qc7 23. c5 f6 24. cxb6 Qxb6 25. Nxc6 Rec8 26. Ne7+ Kf7 27. Nxc8 Rxc8 28. Qd7+ Kg6 29. Qxc8 e5 30. Qe8+ Kh6 31. dxe5 fxe5 32. Rxe5 g6 33. Qf8# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1500"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bc4 e6 4. O-O d5 5. exd5 exd5 6. Bb5 Be7 7. Re1 Be6 8. Ne5 Rc8 9. Nxc6 bxc6 10. Ba4 Bd6 11. d3 Qh4 12. g3 Qxa4 13. Nc3 Qa5 14. Bd2 Qc7 15. Qh5 Kf8 16. Re2 Nf6 17. Qf3 Bg4 18. Qe3 d4 19. Qg5 dxc3 20. Bxc3 Bxe2 21. Bxf6 gxf6 22. Qxf6 Rg8 23. Re1 Bg4 24. Qh6+ Rg7 25. Re4 Be6 26. Rxe6 fxe6 27. Qxe6 Rb8 28. Qf5+ Qf7 29. Qe4 Qd5 30. Qe3 Rxb2 31. Qh6 Rb1+ 32. Qc1 Rxc1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Maia 1900"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 5. Nb3 Bb6 6. Qg4 Qf6 7. Qe2 Nge7 8. Nc3 O-O 9. h4 d6 10. Bg5 Qe6 11. a4 Nd4 12. Nxd4 Bxd4 13. Bd2 f5 14. Nb5 Bxb2 15. Rb1 Bf6 16. Nxc7 Qa2 17. Qc4+ Qxc4 18. Bxc4+ Kh8 19. Nxa8 fxe4 20. Nc7 Nc6 21. Bd5 Nd4 22. Bxe4 b6 23. Rb4 Bg4 24. h5 Rc8 25. Nd5 Nxc2+ 26. Bxc2 Rxc2 27. Rxg4 Ra2 28. Rc4 h6 29. Rc8+ Kh7 30. Nxf6+ gxf6 31. Rh4 Rxa4 32. Rxa4 a5 33. Rac4 d5 34. R4c7# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1900"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 Qe7 4. d4 d6 5. Nf3 Qxe4+ 6. Be2 Bf5 7. O-O Qxc2 8. Nc3 Qxd1 9. Rxd1 Be7 10. Bf4 O-O 11. Rac1 h6 12. Nb5 Na6 13. Nxc7 Nxc7 14. Rxc7 Rfe8 15. Rxb7 Be4 16. Rc7 Nd5 17. Rxe7 Rxe7 18. Bxd6 Re6 19. Bc5 Rb8 20. b3 Nc3 21. Bc4 Bxf3 22. Bxe6 Bxd1 23. Bc4 a5 24. f3 Nxa2 25. Kf2 Bxb3 26. Bxb3 Rxb3 27. d5 Rb5 28. d6 Rxc5 29. d7 Rd5 30. Ke3 Kf8 31. Ke4 Rxd7 32. g4 Nc3+ 33. Ke5 g5 34. f4 Rd5+ 35. Kf6 Ne4# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Maia 1900"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 g6 4. Bxc6 bxc6 5. d3 Bg7 6. Nbd2 d5 7. e5 Bg4 8. c3 Bxe5 9. Qa4 Bxf3 10. Nxf3 Qc7 11. Nxe5 Qxe5+ 12. Be3 Qd6 13. O-O Nf6 14. Bf4 e5 15. Bxe5 Qxe5 16. Qxc6+ Ke7 17. Rae1 Ne4 18. dxe4 d4 19. Qb7+ Kf6 20. f4 Qe6 21. f5 Qe5 22. fxg6+ Kxg6 23. Qxf7+ Kh6 24. Rf3 Rhg8 25. Rh3+ Kg5 26. Rh5+ Kg4 27. Qf3# * 1-0
+
+[Event "Gambit Arena"]
+[White "Maia 1900"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 e5 5. Nb5 d6 6. N1c3 a6 7. Na3 b5 8. Nd5 Nf6 9. Bg5 Be7 10. Bxf6 Bxf6 11. c3 O-O 12. Nc2 Rb8 13. Be2 Bg5 14. O-O Be6 15. Nce3 Ne7 16. Bg4 Qd7 17. Bxe6 fxe6 18. Nxe7+ Qxe7 19. Qe2 Qa7 20. Rad1 Bxe3 21. Rxd6 Rxf2 22. Qg4 Rf4+ 23. Kh1 Rxf1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Leela"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5 5. Nb3 Bb6 6. Qg4 Qf6 7. Qe2 Nge7 8. Nc3 O-O 9. h4 d6 10. Bg5 Qe6 11. O-O-O Ng6 12. h5 Nge5 13. h6 g6 14. Nd5 f5 15. f4 Ng4 16. Qf3 fxe4 17. Qc3 Nf2 18. Qg7# * 1-0
+
+[Event "Gambit Arena"]
+[White "Leela"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 d5 3. Nxe5 dxe4 4. Bc4 Nh6 5. d4 Nd7 6. Bxh6 Nxe5 7. dxe5 Qxd1+ 8. Kxd1 gxh6 9. Nc3 Bg7 10. Nxe4 Bxe5 11. c3 Bf5 12. Ng3 O-O-O+ 13. Ke2 Bg6 14. Rad1 h5 15. Rxd8+ Rxd8 16. Rd1 Rxd1 17. Kxd1 a6 18. Ke2 h4 19. Nf1 Bh5+ 20. f3 Bg6 21. Ne3 Bxh2 22. Ng4 Bg3 23. Nf6 Be5 24. Ng4 Bf4 25. Nf6 h6 26. Nd5 Bd6 27. Nf6 Bf4 28. Nd5 Bg5 29. f4 Bd8 30. Kf3 b5 31. Bb3 Kd7 32. Ne3 c6 33. f5 Bh5+ 34. Kf4 Kd6 35. c4 Bf6 36. cxb5 axb5 37. Ng4 Bxb2 38. Nxh6 Bc1+ 39. Ke4 Bxh6 40. a4 Kc5 41. a5 Bd2 42. a6 Kb6 43. Ke5 c5 44. Kf6 c4 45. Bc2 b4 46. Ke5 b3 47. Be4 Be2 48. Kf6 Bc3+ 49. Kxf7 Bd3 50. Bxd3 cxd3 51. f6 b2 52. a7 Kxa7 53. Ke7 d2 54. f7 d1=Q 55. f8=Q Bb4+ 56. Ke8 Bxf8 57. Kxf8 Qd7 58. Kg8 b1=Q 59. Kf8 Qb8# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Leela"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 g6 4. Bxc6 bxc6 5. d3 Bg7 6. Nbd2 d5 7. e5 Bg4 8. c3 Bxe5 9. Qa4 Bxf3 10. Nxf3 Qc7 11. Nxe5 Qxe5+ 12. Be3 Qd6 13. O-O Nf6 14. Bf4 e5 15. Bxe5 Qxe5 16. Qxc6+ Ke7 17. Rae1 Ne4 18. dxe4 d4 19. Qb7+ Kf6 20. f4 Qe6 21. f5 Qe5 22. fxg6+ Kxg6 23. Qxf7+ Kh6 24. Rf3 Rhg8 25. Rh3+ Kg5 26. Rh5+ Kg4 27. Qf3# * 1-0
+
+[Event "Gambit Arena"]
+[White "Leela"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 e5 5. Nb5 d6 6. N1c3 a6 7. Na3 b5 8. Nd5 Nf6 9. Bg5 Be7 10. Bxf6 Bxf6 11. c3 O-O 12. Nc2 Rb8 13. Be2 Bg5 14. O-O Be6 15. Nce3 Ne7 16. Bg4 Qd7 17. Bxe6 fxe6 18. Nxe7+ Qxe7 19. Qe2 Qc7 20. Rad1 Rf6 21. Ng4 Rff8 22. Rd3 Be7 23. Rfd1 Rbc8 24. Ne3 Qb7 25. Qg4 Rf6 26. f3 Rg6 27. Qh3 Qa7 28. Kh1 Rh6 29. Qg3 Bh4 30. Qg4 Rf8 31. Rxd6 Qxe3 32. Rxe6 Qe2 33. Rxh6 Qxd1# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Sunfish"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 Bd6 4. d4 Nxe4 5. Qg4 Qe7 6. Qxe4 f6 7. f4 fxe5 8. fxe5 O-O 9. Bd3 Bb4+ 10. c3 g6 11. h4 d5 12. Qxd5+ Kh8 13. Bg5 Qe6 14. Qxe6 Bxc3+ 15. Nxc3 Bxe6 16. h5 Bf5 17. Kd2 Bxd3 18. Kxd3 gxh5 19. Rxh5 Rf2 20. Ne4 Rxg2 21. Rah1 Rxb2 22. Rxh7+ Kg8 23. Nf6+ Kf8 24. Bh6# * 1-0
+
+[Event "Gambit Arena"]
+[White "Sunfish"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 d5 3. Nxe5 dxe4 4. d4 exd3 5. Qxd3 Qe7 6. Qd5 Nf6 7. Qd4 Nfd7 8. f4 f6 9. Bb5 a6 10. Bxd7+ Bxd7 11. O-O fxe5 12. Qxe5 Qxe5 13. fxe5 Bc5+ 14. Kh1 Nc6 15. Bf4 O-O-O 16. Nc3 Bd4 17. Rfe1 Rhf8 18. Bg5 Rde8 19. Rad1 Bxe5 20. Rd5 Bxc3 21. Rxe8+ Rxe8 22. Kg1 Bxb2 23. Bh4 Re2 24. c3 Bxc3 25. a3 Ra2 26. Bg3 Rxa3 27. h3 Bf6 28. Bf4 h6 29. Rd1 b5 30. Rd5 g5 31. Bd2 Ne7 32. Bc1 Nxd5 33. Bxa3 b4 34. Bc1 b3 35. Ba3 b2 36. Bxb2 Bxb2 37. Kh2 Be5+ 38. Kh1 Nf4 39. Kg1 Nxh3+ 40. gxh3 Bxh3 41. Kf2 g4 42. Ke1 g3 43. Ke2 g2 44. Kf2 Bd4+ 45. Kf3 g1=Q 46. Ke4 Qe3+ 47. Kd5 c6+ 48. Kxc6 Qe6# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Sunfish"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 d5 4. exd5 Qxd5 5. O-O e5 6. Nc3 Qd6 7. Nxe5 Nf6 8. Nxc6 bxc6 9. Qf3 Bb7 10. Bc4 Qd4 11. d3 Rd8 12. Nb5 Qd7 13. Re1+ Be7 14. Nc3 O-O 15. Ne4 Qd4 16. Ng3 Rfe8 17. Nf5 Qd7 18. Bg5 Bf8 19. Nh6+ gxh6 20. Bxf6 Rxe1+ 21. Rxe1 Bd6 22. Re4 Re8 23. Rxe8+ Qxe8 24. Qg4+ Kf8 25. Qg7# * 1-0
+
+[Event "Gambit Arena"]
+[White "Sunfish"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bc4 e6 4. Nc3 Nf6 5. O-O d5 6. exd5 exd5 7. Re1+ Be7 8. Bb3 Be6 9. Ng5 Bg4 10. f3 Bc8 11. Nb5 a6 12. Nc3 h6 13. Nh3 Bxh3 14. gxh3 c4 15. Ba4 b5 16. Nxb5 axb5 17. Rxe7+ Qxe7 18. Bxb5 Qc5+ 19. Kf1 Qxb5 20. Qe2+ Kf8 21. Kg1 Nd4 22. Qd1 Qa4 23. d3 cxd3 24. Qxd3 Nxc2 25. Rb1 Ne1 26. Qc3 Qxa2 27. Qc5+ Kg8 28. Qc6 Re8 29. Bg5 Qxb1 30. Bxf6 Qg6+ 31. Bg5 Qxg5+ 32. Kh1 Qg2# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Stash"]
+[Result "1/2-1/2"]
+[Termination "threefold repetition"]
+
+1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. Nc3 Nxc3 6. dxc3 Be7 7. Bd3 O-O 8. O-O Nd7 9. Be3 Re8 10. h3 Bf6 11. Re1 b6 12. Nd4 Bb7 13. Bb5 Re4 14. Bd3 Re5 15. Bb5 Rc5 16. a4 a6 17. Be2 Re5 18. Bf3 d5 19. c4 Re8 20. cxd5 Ne5 21. Nc6 Bxc6 22. dxc6 Qxd1 23. Raxd1 Nxf3+ 24. gxf3 Re6 25. Bf4 Rxc6 26. c3 g6 27. Kg2 Kg7 28. Rd7 Rc8 29. Re3 a5 30. Re4 h5 31. Kg3 Kg8 32. Be5 Re6 33. Bxf6 Rxf6 34. f4 c5 35. Rd1 Rcc6 36. b4 axb4 37. cxb4 cxb4 38. Rxb4 Rc5 39. Rd3 Rfc6 40. Rdb3 Rc4 41. Rxc4 Rxc4 42. Rxb6 Rxa4 43. h4 Ra3+ 44. Kg2 Kg7 45. Rd6 Rb3 46. Ra6 Rb5 47. Kg3 Rb3+ 48. f3 Rb5 49. Rd6 Kf8 50. Kf2 Rf5 51. Ke3 Rb5 52. Ra6 Rf5 53. Rb6 Ke7 54. Rb2 Rf6 55. Rb7+ Kf8 56. Rb8+ Kg7 57. Rb5 Re6+ 58. Kf2 Rf6 59. Rb4 Rf5 60. Ra4 Rf6 61. Kg1 Rf5 62. Rb4 Ra5 63. Kf2 Rf5 64. Ra4 Rf6 65. Kg1 Rf5 66. Kf2 * 1/2-1/2
+
+[Event "Gambit Arena"]
+[White "Stash"]
+[Black "Fairy-Stockfish"]
+[Result "1/2-1/2"]
+[Termination "threefold repetition"]
+
+1. e4 e5 2. Nf3 d5 3. Nxe5 dxe4 4. Bc4 Nh6 5. d4 Nd7 6. O-O Nxe5 7. dxe5 Qxd1 8. Rxd1 Bf5 9. h3 Bc5 10. Nc3 e3 11. Bxe3 Bxe3 12. fxe3 Bxc2 13. Rd2 Bg6 14. Rad1 O-O 15. Rd7 c6 16. Rxb7 a5 17. e6 fxe6 18. Bxe6+ Kh8 19. e4 Nf7 20. Bxf7 Rxf7 21. Rxf7 Bxf7 22. Rd7 Be8 23. Rc7 Kg8 24. Kf2 a4 25. Rb7 a3 26. b3 Ra5 27. Rb8 Kf7 28. Ne2 Bd7 29. Nd4 Ra7 30. Rb6 c5 31. Nf3 Ke7 32. Ne5 Rc7 33. Ke3 Be6 34. Ra6 c4 35. bxc4 Bxc4 36. Nxc4 Rxc4 37. Rxa3 Rc2 38. g4 Ke6 39. Ra6+ Ke5 40. Ra5+ Kf6 41. h4 Ke6 42. Ra6+ Ke5 43. Ra5+ Ke6 44. Ra6+ Ke5 45. Ra5+ Ke6 * 1/2-1/2
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Stash"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Bb5 Nd4 4. Nxd4 cxd4 5. c3 Nf6 6. e5 Nd5 7. O-O e6 8. Bc4 Nb6 9. Be2 Bc5 10. Na3 d5 11. Nb5 dxc3 12. dxc3 O-O 13. Bf4 a6 14. Nd4 Nd7 15. Bd3 g6 16. Qd2 Re8 17. Rab1 Bf8 18. Bc2 Bg7 19. Rfe1 Qc7 20. Qe3 Nb6 21. h4 Nc4 22. Qf3 h5 23. g4 hxg4 24. Qxg4 Nxb2 25. h5 Qxc3 26. hxg6 Qxd4 27. gxf7+ Kxf7 28. Qg6+ Kf8 29. Bc1 Re7 30. Bxb2 Qf4 31. Ba3 Bxe5 32. Rb3 Bd4 33. Ree3 Bxe3 34. Rxe3 b5 35. Rh3 Qg4+ 36. Qxg4 Ke8 37. Qb4 Rg7+ 38. Kf1 Rg1+ 39. Kxg1 Ra7 40. Rh8+ Kd7 41. Qd6# * 1-0
+
+[Event "Gambit Arena"]
+[White "Stash"]
+[Black "Fairy-Stockfish"]
+[Result "0-1"]
+[Termination "checkmate"]
+
+1. e4 c5 2. Nf3 Nc6 3. Nc3 e6 4. d4 cxd4 5. Nxd4 Nf6 6. Nxc6 bxc6 7. e5 Nd5 8. Nxd5 exd5 9. Qd4 Qb6 10. Be3 Qxd4 11. Bxd4 c5 12. Be3 Bb7 13. Bf4 Be7 14. Be2 d4 15. O-O Rc8 16. b3 h5 17. Rae1 Rc6 18. a4 Rg6 19. g3 h4 20. Bc4 Bd8 21. Bd3 Re6 22. Bc4 Ba6 23. Bxa6 Rxa6 24. Kg2 Ba5 25. Rb1 h3+ 26. Kf3 f6 27. exf6 Rxf6 28. Kg4 Re6 29. Rbc1 Rg6+ 30. Kf5 Kf7 31. Ke4 Rf6 32. Kd5 Rc6 33. Rcd1 Bb4 34. Bd2 Rh5+ 35. Ke4 Re6+ 36. Kf4 Bxd2+ 37. Rxd2 a5 38. f3 d6 39. Rff2 Rhh6 40. Rde2 Ref6+ 41. Ke4 Rh5 42. f4 Rhf5 43. Kf3 g5 44. Kg4 d5 45. Kxh3 gxf4 46. Kg4 f3 47. Re1 c4 48. h4 c3 49. Kh3 Re6 50. Ref1 Kg6 51. g4 Rf4 52. Kg3 Ree4 53. h5+ Kh6 54. Rxf3 Rxg4+ 55. Kf2 Rh4 56. Rf5 Rhf4+ 57. Kg3 Rxf5 58. Rxf5 d3 59. cxd3 Rd4 60. Rf1 Kg5 61. Rd1 c2 62. Rc1 Rxd3+ 63. Kf2 Rh3 64. Ke2 d4 65. Kd2 d3 66. Rg1+ Kh6 67. Re1 Kxh5 68. b4 axb4 69. Rg1 Rf3 70. Ra1 Kg4 71. a5 b3 72. Kc3 Rf8 73. Rg1+ Kf4 74. Rf1+ Ke3 75. Re1+ Kf2 76. Rh1 Rc8+ 77. Kxd3 b2 78. Rh2+ Kg3 79. Rh7 c1=N+ 80. Ke3 b1=Q 81. Rg7+ Kh2 82. Rg5 Re8+ 83. Kd4 Qd3+ 84. Kc5 Rc8+ 85. Kb6 Qd6+ 86. Kb5 Qb8+ 87. Ka4 Qb3# * 0-1
+
+[Event "Gambit Arena"]
+[White "Fairy-Stockfish"]
+[Black "Fruit"]
+[Result "1-0"]
+[Termination "checkmate"]
+
+1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Qh4 5. Nc3 Bb4 6. Nb5 Ba5 7. Be3 a6 8. Nd4 Qxe4 9. Qd3 Nf6 10. O-O-O Qxd3 11. Bxd3 Bxc3 12. bxc3 d6 13. Nxc6 bxc6 14. Kd2 Be6 15. c4 Ng4 16. f4 Nxe3 17. Kxe3 Ke7 18. f5 Bd7 19. c5 Kf6 20. g4 h5 21. h3 Rhe8+ 22. Kf4 g5+ 23. fxg6 fxg6 24. cxd6 cxd6 25. gxh5 gxh5 26. Rhg1 d5 27. Rg6+ Ke7 28. Re1+ Kf7 29. Reg1 Rg8 30. Rxg8 Rxg8 31. Rxg8 Kxg8 32. h4 a5 33. Bg6 Kg7 34. Bxh5 Kf6 35. Bg4 Bxg4 36. Kxg4 Kg6 37. a4 Kf6 38. Kf4 c5 39. h5 Ke6 40. h6 Kf6 41. h7 Kg7 42. Ke5 d4 43. Kd5 Kxh7 44. Kxc5 Kg6 45. Kxd4 Kf6 46. c4 Ke6 47. Kc5 Kd7 48. Kb6 Kc8 49. c5 Kb8 50. c6 Ka8 51. Kc7 Ka7 52. Kd6 Kb8 53. Kd7 Ka7 54. c7 Kb6 55. c8=Q Ka7 56. Qc4 Kb7 57. Qb5+ Ka7 58. Kc6 Ka8 59. Qb7# * 1-0
+

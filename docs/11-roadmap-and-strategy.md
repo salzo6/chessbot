@@ -16,6 +16,8 @@
 
 Each phase produces a **measurable artifact** and is gated by the testing harness ([08](08-testing-elo-iteration.md)). Do not skip the harness — without SPRT/Elo you are flying blind.
 
+> **Platform-first prepend (decided for this project):** before Phase 1, build the interactive **platform** ([12](12-the-platform.md)) — download real bots, play them, pit bot-vs-bot, and rank them on an anchored Elo leaderboard — so the build→measure→matchmake→iterate loop is internalized on known-good engines first. This re-orders the default below (it does *not* replace it; Phases 0–4 still follow). Honest caveat, accepted: the platform is *off* the critical path to beating Stockfish and the match/Elo machinery is already solved — build it thin, reuse fastchess/Ordo/python-chess, and don't let it outrun the engine.
+
 > **Sequencing principle (decided for this project):** *Master the full algorithm-only loop end-to-end before touching any training.* That means: build a no-ML engine (Phases 0–2), play it against Stockfish and a ladder of other bots, get its Elo, and watch it actually play — until the entire workflow of *building → measuring → matchmaking → iterating* is second nature. **Training (Phase 3) is deliberately gated behind a working, measured, algorithm-only engine.** Rationale: training is pointless if you can't yet reliably measure whether it helped, and the algorithm-only engine is already superhuman (~3000–3400) — more than enough to learn the loop against. GPU budget is available (RunPod, existing credit), so Phase 3 is a *when-ready* step, not a *blocked* one.
 
 ### Phase 0 — The measuring instrument (days)
@@ -84,10 +86,11 @@ Be precise, because vague goals produce motion without progress:
 ---
 
 ## 6. Immediate next actions (when building begins)
-1. Scan the target machine (CPU cores, RAM, exact M-series chip) to set thread/hash defaults.
-2. Stand up Phase 0 (fastchess + Stockfish + ladder + Ordo).
-3. Start the Phase 1 core in Rust; gate on perft.
-4. Keep this `docs/` set as the living reference; update confidence notes as numbers are re-verified against live sources.
+1. Scan the target machine (CPU cores, RAM, exact M-series chip) to set thread/hash defaults. *(Done: Apple M1 Pro, arm64; Homebrew present; no engine/harness tooling yet.)*
+2. **Build the platform first ([12](12-the-platform.md))** — bot library + arena + playboard + anchored leaderboard, populated with downloaded bots. Validate with a stock GUI before writing custom code.
+3. Stand up Phase 0 underneath it (fastchess + Stockfish + ladder + Ordo) — the platform's arena/leaderboard wrap exactly these.
+4. Start the Phase 1 core in Rust; gate on perft.
+5. Keep this `docs/` set as the living reference; update confidence notes as numbers are re-verified against live sources.
 
 ---
 
