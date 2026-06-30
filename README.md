@@ -33,6 +33,9 @@ Read in order for a full grounding, or jump to what you need.
 | 10 | [Supporting Systems](docs/10-supporting-systems.md) | Opening books, endgame tablebases, time management, multithreading, deployment, Lichess bots |
 | 11 | [Roadmap & Strategy](docs/11-roadmap-and-strategy.md) | The synthesis: concrete phased plans, decision points, and how a future builder should approach this |
 | 12 | [The Platform](docs/12-the-platform.md) | The interactive layer: download bots, play against them, pit bot-vs-bot, anchored Elo leaderboard — and the decision to build it *first* |
+| 13 | [The Coach](docs/13-the-coach.md) | The coaching layer over the Playboard: objective eval, move classification, tiered hints, engine-grounded threats, the "Marcus" persona |
+| 14 | [The Name: **Vesper**](docs/14-the-name.md) | What the bot is called and why — naming convention, candidates considered, availability checks |
+| 15 | [Vesper v1: The First Engine](docs/15-vesper-v1.md) | The first real engine — from-scratch 0x88 + PVS + HCE, how it's validated (perft/selftest), and an honest strength read |
 | — | [References](docs/references.md) | Consolidated bibliography of primary sources |
 
 ---
