@@ -132,6 +132,50 @@ export class Engine {
     });
   }
 
+  /** Interrupt the current search early; it will emit `bestmove` shortly. */
+  stop() {
+    this.send("stop");
+  }
+
+  /**
+   * MultiPV analysis for the coach. Returns the top-N lines (white POV),
+   * sorted by rank. opts: { multipv, depth, movetime, onUpdate }.
+   * Separate from search() so normal play is unaffected.
+   */
+  async analyze(fen, opts = {}) {
+    const flip = fenTurn(fen) === "black";
+    const multipv = opts.multipv || 3;
+    this.setOptions({ MultiPV: multipv });
+    this.send("ucinewgame");
+    this.send("isready");
+    await this._waitFor((l) => l === "readyok");
+    this.send(`position fen ${fen}`);
+
+    let go = "go";
+    if (opts.depth) go += ` depth ${opts.depth}`;
+    else go += ` movetime ${opts.movetime || 600}`;
+
+    const lines = new Map(); // rank -> info
+    return new Promise((resolve) => {
+      const fn = (line) => {
+        if (line.startsWith("info") && line.includes(" pv ")) {
+          const info = parseInfo(line, flip);
+          const rank = info.multipv || 1;
+          info.uci = info.pv ? info.pv.split(" ")[0] : undefined;
+          lines.set(rank, info);
+          opts.onUpdate?.(ranked());
+        } else if (line.startsWith("bestmove")) {
+          this.listeners = this.listeners.filter((l) => l !== fn);
+          const r = ranked();
+          resolve({ fen, lines: r, best: r[0] || null });
+        }
+      };
+      const ranked = () => [...lines.values()].sort((a, b) => (a.multipv || 1) - (b.multipv || 1));
+      this.listeners.push(fn);
+      this.send(go);
+    });
+  }
+
   quit() {
     try {
       this.send("quit");
@@ -148,6 +192,7 @@ function parseInfo(line, flip) {
   for (let i = 0; i < t.length; i++) {
     switch (t[i]) {
       case "depth": info.depth = +t[++i]; break;
+      case "multipv": info.multipv = +t[++i]; break;
       case "nps": info.nps = +t[++i]; break;
       case "nodes": info.nodes = +t[++i]; break;
       case "score":

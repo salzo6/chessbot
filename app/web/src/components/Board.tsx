@@ -3,6 +3,7 @@ import { Chessground } from "chessground";
 import type { Api } from "chessground/api";
 import type { Config } from "chessground/config";
 import type { Key } from "chessground/types";
+import type { DrawShape } from "chessground/draw";
 
 export interface BoardProps {
   fen: string;
@@ -14,6 +15,9 @@ export interface BoardProps {
   dests?: Map<string, string[]>;
   movableColor?: "white" | "black" | "both";
   onMove?: (from: string, to: string) => void;
+  // Coach-drawn arrows/labels. Rendered as a SEPARATE layer (setAutoShapes),
+  // independent of last-move/check highlights and the user's own arrows.
+  autoShapes?: DrawShape[];
 }
 
 export default function Board({
@@ -26,6 +30,7 @@ export default function Board({
   dests,
   movableColor,
   onMove,
+  autoShapes,
 }: BoardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const api = useRef<Api | null>(null);
@@ -53,6 +58,8 @@ export default function Board({
         },
       },
       draggable: { showGhost: true },
+      // Let the user draw their own arrows/highlights (right-click drag).
+      drawable: { enabled: true, autoShapes: autoShapes ?? [] },
     };
     api.current = Chessground(ref.current, config);
     return () => api.current?.destroy();
@@ -73,6 +80,12 @@ export default function Board({
       },
     });
   }, [fen, orientation, turnColor, check, lastMove, viewOnly, movableColor, dests]);
+
+  // Coach shapes live on their own layer — updating them never disturbs the
+  // board state, the user's manual arrows, or the highlights above.
+  useEffect(() => {
+    api.current?.setAutoShapes((autoShapes ?? []) as DrawShape[]);
+  }, [autoShapes]);
 
   return <div ref={ref} className="cg-wrap" />;
 }

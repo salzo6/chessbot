@@ -56,3 +56,46 @@ export interface EngineInfo {
   nodes?: number;
   pv?: string;
 }
+
+/* ---------------- Coach (additive analysis layer) ---------------- */
+
+export interface AnalysisLine {
+  multipv: number;
+  scoreCp?: number; // white POV
+  mate?: number; // white POV
+  depth?: number;
+  pv?: string;
+  uci?: string; // first move of the line
+}
+
+export interface PositionAnalysis {
+  fen: string;
+  lines: AnalysisLine[];
+  best: AnalysisLine | null;
+}
+
+export type MoveClass =
+  | "best"
+  | "brilliant"
+  | "great"
+  | "excellent"
+  | "good"
+  | "book"
+  | "inaccuracy"
+  | "mistake"
+  | "miss"
+  | "blunder";
+
+export interface MoveJudgment {
+  ply: number; // 1-based ply this judges
+  san: string;
+  uci: string;
+  color: Color; // who played it
+  cls: MoveClass;
+  winLoss: number; // win% lost vs best (0..100)
+  bestUci?: string;
+  bestSan?: string;
+  evalCp?: number; // white POV eval after the move (best line of resulting pos)
+  mate?: number; // white POV mate after the move
+  explanation?: string[];
+}

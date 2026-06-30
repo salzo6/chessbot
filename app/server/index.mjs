@@ -23,8 +23,45 @@ const app = express();
 app.use(express.json());
 
 app.get("/api/health", (_req, res) =>
-  res.json({ ok: true, stockfish: store.primaryPath(), engines: store.installedCount() })
+  res.json({
+    ok: true,
+    stockfish: store.primaryPath(),
+    engines: store.installedCount(),
+    aiCoach: !!process.env.ANTHROPIC_API_KEY,
+  })
 );
+
+// Optional, on-demand rich commentary. Off unless ANTHROPIC_API_KEY is set;
+// callers fall back to the always-available heuristic explanations. The LLM is
+// anchored to engine facts (eval, PV) so it narrates rather than calculates.
+app.post("/api/coach/explain", async (req, res) => {
+  const key = process.env.ANTHROPIC_API_KEY;
+  if (!key) return res.status(503).json({ ok: false, error: "AI coach not configured" });
+  try {
+    const { fen, san, evalText, bestSan, pv, cls } = req.body || {};
+    const prompt =
+      `You are a concise chess coach. A move was just played; explain the idea in 1-2 short sentences ` +
+      `for a club player. Do NOT contradict the engine facts.\n\n` +
+      `FEN (after move): ${fen}\nMove played: ${san} (classified "${cls}")\n` +
+      `Engine eval (white POV): ${evalText}\nEngine's preferred line: ${bestSan} — ${pv}\n\n` +
+      `Explain plainly what the move does and why it's good or bad. No move lists, no preamble.`;
+    const r = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-api-key": key, "anthropic-version": "2023-06-01" },
+      body: JSON.stringify({
+        model: "claude-haiku-4-5-20251001",
+        max_tokens: 160,
+        messages: [{ role: "user", content: prompt }],
+      }),
+    });
+    const data = await r.json();
+    const text = data?.content?.[0]?.text?.trim();
+    if (!text) return res.status(502).json({ ok: false, error: "no response" });
+    res.json({ ok: true, text });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e) });
+  }
+});
 app.get("/api/bots", (_req, res) => res.json(store.bots()));
 app.get("/api/ratings", (_req, res) => res.json(store.ratings()));
 app.get("/api/matches", (_req, res) => res.json(store.matches()));
@@ -55,6 +92,7 @@ const wss = new WebSocketServer({ server });
 wss.on("connection", (ws, req) => {
   const path = (req.url || "").split("?")[0];
   if (path === "/ws/play") handlePlay(ws);
+  else if (path === "/ws/coach") handleCoach(ws);
   else if (path === "/ws/arena") handleArena(ws);
   else if (path === "/ws/roundrobin") handleRoundRobin(ws);
   else ws.close();
@@ -103,6 +141,72 @@ function handlePlay(ws) {
   ws.on("close", () => {
     for (const e of engines.values()) e.quit();
     engines.clear();
+  });
+}
+
+/* ---------------- Coach: independent full-strength MultiPV oracle ---------------- */
+// Purely additive: a separate Stockfish instance that judges positions objectively,
+// regardless of which (possibly weak) bot the user is actually playing. Never touches
+// the play path. Latest-request-wins: a new analyze supersedes the in-flight one.
+function handleCoach(ws) {
+  const send = (o) => ws.readyState === ws.OPEN && ws.send(JSON.stringify(o));
+  let engine = null;
+  let inflight = null; // the msg currently being analyzed
+  let queued = null; // the latest pending msg (only the newest matters)
+
+  async function getEngine() {
+    if (engine) return engine;
+    // Always the strongest installed engine — the coach must be objective.
+    const sf = store.bot("stockfish") || store.bots().find((b) => b.kind === "engine" && b.installed);
+    if (!sf?.path) throw new Error("no analysis engine installed (need Stockfish)");
+    engine = new Engine(sf.path, sf.args, { options: { Threads: 2, Hash: 128 } });
+    await engine.init();
+    return engine;
+  }
+
+  async function pump() {
+    if (inflight) return; // a pump loop is already draining the queue
+    while (queued) {
+      const msg = queued;
+      queued = null;
+      inflight = msg;
+      try {
+        const eng = await getEngine();
+        // A newer request may have arrived during init (when `stop` is a no-op
+        // because no search is running yet) — skip straight to the latest.
+        if (queued) continue;
+        const res = await eng.analyze(msg.fen, {
+          multipv: msg.multipv || 3,
+          movetime: msg.movetime || 600,
+          depth: msg.depth,
+          onUpdate: (lines) => send({ type: "line", reqId: msg.reqId, fen: msg.fen, lines }),
+        });
+        send({ type: "done", reqId: msg.reqId, ...res });
+      } catch (e) {
+        send({ type: "error", reqId: msg.reqId, error: String(e) });
+      } finally {
+        inflight = null;
+      }
+    }
+  }
+
+  ws.on("message", (raw) => {
+    let msg;
+    try { msg = JSON.parse(raw.toString()); } catch { return; }
+    if (msg.type === "analyze") {
+      queued = msg; // newest wins
+      if (inflight) engine?.stop(); // interrupt the stale search; pump() restarts with `queued`
+      else pump();
+    } else if (msg.type === "cancel") {
+      queued = null;
+      if (inflight) engine?.stop();
+    }
+  });
+
+  ws.on("close", () => {
+    queued = null;
+    engine?.quit();
+    engine = null;
   });
 }
 

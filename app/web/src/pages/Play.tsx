@@ -1,11 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Chess, type Square } from "chess.js";
 import { motion, AnimatePresence } from "framer-motion";
-import { RotateCcw, Flag, Sparkles, Eye, EyeOff, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import { RotateCcw, Flag, Sparkles, Eye, EyeOff, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, GraduationCap } from "lucide-react";
 import { api, wsURL } from "../lib/api";
-import type { Bot, EngineInfo } from "../lib/types";
+import type { Bot, EngineInfo, MoveJudgment } from "../lib/types";
 import Board from "../components/Board";
+import CoachPanel from "../components/CoachPanel";
+import { useCoach } from "../hooks/useCoach";
+import { CLASS_META } from "../lib/coach";
 import { PageHeader, Button, Avatar, Badge } from "../components/ui";
+
+// How long to linger on the coach's take after it's ready, before the bot replies.
+const READ_MS = 1500;
 
 function toDests(chess: Chess): Map<string, string[]> {
   const dests = new Map<string, string[]>();
@@ -28,13 +34,44 @@ export default function Play() {
   const [status, setStatus] = useState<string>("");
   const [pending, setPending] = useState<{ from: string; to: string } | null>(null);
   const [showEval, setShowEval] = useState(() => localStorage.getItem("coach.showEval") !== "0");
+  const [coachOn, setCoachOn] = useState(() => localStorage.getItem("coach.enabled") === "1");
   // null = following the live position; a number = browsing the position after that many plies
   const [viewPly, setViewPly] = useState<number | null>(null);
+  // accumulated per-ply classifications, for movelist glyphs (fills in as you play/browse)
+  const [judgments, setJudgments] = useState<Map<number, MoveJudgment>>(new Map());
+  // coaching pace + blunder guard
+  const [guardOn, setGuardOn] = useState(() => localStorage.getItem("coach.guard") !== "0");
+  const [guardWarn, setGuardWarn] = useState<MoveJudgment | null>(null);
+  const [pacing, setPacing] = useState(false); // bot reply is held while the coach weighs in
+  const [gameKey, setGameKey] = useState(0); // bump on new game to reset the coach conversation
+  const pendingPlyRef = useRef<number | null>(null);
+  const paceTimer = useRef<number | undefined>(undefined);
   const ws = useRef<WebSocket | null>(null);
+
+  function clearPace() {
+    if (paceTimer.current) { clearTimeout(paceTimer.current); paceTimer.current = undefined; }
+  }
+  function releaseEngine() {
+    setPacing(false);
+    requestEngine();
+  }
+  function scheduleEngine(ms: number) {
+    clearPace();
+    paceTimer.current = window.setTimeout(() => { paceTimer.current = undefined; releaseEngine(); }, ms);
+  }
+  function toggleGuard() {
+    setGuardOn((v) => { localStorage.setItem("coach.guard", v ? "0" : "1"); return !v; });
+  }
 
   function toggleEval() {
     setShowEval((v) => {
       localStorage.setItem("coach.showEval", v ? "0" : "1");
+      return !v;
+    });
+  }
+  function toggleCoach() {
+    setCoachOn((v) => {
+      localStorage.setItem("coach.enabled", v ? "0" : "1");
       return !v;
     });
   }
@@ -127,7 +164,22 @@ export default function Play() {
     setLastMove([from, to]);
     setViewPly(null);
     sync();
-    setTimeout(requestEngine, 180);
+    if (coachOn && game.current.isGameOver()) {
+      // your move ended the game — nothing for the bot to reply to
+      setPacing(false);
+    } else if (coachOn) {
+      // Hold the bot's reply until the coach has judged this move (then a reading
+      // beat). Also lets the blunder guard intercept before the opponent moves.
+      pendingPlyRef.current = game.current.history().length;
+      setPacing(true);
+      clearPace();
+      paceTimer.current = window.setTimeout(() => {
+        // fallback: judgment never arrived (engine slow/unavailable) — don't stall
+        if (pendingPlyRef.current != null) { pendingPlyRef.current = null; releaseEngine(); }
+      }, 3500);
+    } else {
+      setTimeout(requestEngine, 180);
+    }
   }
 
   function startGame(color: "white" | "black") {
@@ -135,12 +187,43 @@ export default function Play() {
     setMyColor(color);
     setLastMove(undefined);
     setViewPly(null);
+    setJudgments(new Map());
     setInfo(null);
     setStatus("");
     setThinking(false);
+    pendingPlyRef.current = null;
+    clearPace();
+    setGuardWarn(null);
+    setPacing(false);
+    setGameKey((k) => k + 1);
     setFen(game.current.fen());
     // if you're Black, the engine (White) makes the first move
     if (color === "black") setTimeout(requestEngine, 400);
+  }
+
+  // The ONE coach action that mutates game state: roll back to your previous turn.
+  // Pops the engine's reply + your move (or a single ply if it's mid-turn).
+  function takeback() {
+    const g = game.current;
+    const justMovedColor = g.turn() === "w" ? "black" : "white"; // who moved last
+    g.undo(); // remove last ply
+    // if that last ply was the engine's reply, also undo your move so it's your turn again
+    if (justMovedColor !== myColor && !g.isGameOver()) g.undo();
+    setLastMove(undefined);
+    setViewPly(null);
+    setInfo(null);
+    setStatus("");
+    setThinking(false);
+    setPending(null);
+    pendingPlyRef.current = null;
+    clearPace();
+    setGuardWarn(null);
+    setPacing(false);
+    setFen(g.fen());
+    // If we landed on the engine's turn (e.g. took back your only move as Black),
+    // let it move again so the game doesn't stall.
+    const t = g.turn() === "w" ? "white" : "black";
+    if (t !== myColor && !g.isGameOver()) setTimeout(requestEngine, 250);
   }
 
   // Full move history (verbose) at the live position — recomputed whenever a move lands.
@@ -205,6 +288,95 @@ export default function Play() {
   const moves = game.current.history();
   const browsing = !atLive;
 
+  // ---- Coach (additive overlay) ----
+  const displayedPly = atLive ? totalPlies : viewPly!;
+  const displayedMove = displayedPly > 0 ? verbose[displayedPly - 1] : null;
+  const displayedGameOver = atLive ? game.current.isGameOver() : false;
+  const coach = useCoach({
+    enabled: coachOn,
+    fen: view.fen,
+    lastMove: displayedMove,
+    gameOver: displayedGameOver,
+    yourTurn: canMove,
+  });
+  // Record classifications by ply for movelist glyphs (idempotent).
+  useEffect(() => {
+    const j = coach.judgment;
+    if (!j) return;
+    setJudgments((prev) => {
+      if (prev.get(j.ply)?.cls === j.cls) return prev;
+      const next = new Map(prev);
+      next.set(j.ply, j);
+      return next;
+    });
+  }, [coach.judgment]);
+
+  // Pacing + blunder guard: once the coach has judged the move we just played,
+  // either intercept a blunder, or linger a beat then let the bot reply.
+  useEffect(() => {
+    if (!coachOn || pendingPlyRef.current == null) return;
+    const j = coach.judgment;
+    if (!j || j.ply !== pendingPlyRef.current) return;
+    pendingPlyRef.current = null;
+    clearPace();
+    if (guardOn && j.cls === "blunder") {
+      setPacing(false);
+      setGuardWarn(j); // hold the bot; ask the user to reconsider
+    } else {
+      scheduleEngine(READ_MS);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coach.judgment, coachOn, guardOn]);
+
+  // If the coach is switched off mid-pace, don't leave the bot hanging.
+  useEffect(() => {
+    if (!coachOn && pendingPlyRef.current != null) {
+      pendingPlyRef.current = null;
+      clearPace();
+      setGuardWarn(null);
+      setPacing(false);
+      requestEngine();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coachOn]);
+
+  // Don't leave a pending engine timer running if we navigate away.
+  useEffect(() => () => clearPace(), []);
+
+  // Proactive "what does the opponent threaten?" — now engine-grounded, computed in the coach
+  // hook from a null-move search (only on your live turn). null = still analyzing.
+  const threats = coach.threat;
+
+  // Board overlay: coach's badges/arrows + a faint marker on a threatened square,
+  // so Marcus's spoken warning is anchored to the board (only for real, eval-backed threats).
+  const boardShapes = useMemo(() => {
+    if (!coachOn) return [] as any[];
+    const shapes: any[] = [...coach.autoShapes];
+    if (threats?.square && (threats.severity === "warn" || threats.severity === "alarm")) {
+      shapes.push({ orig: threats.square, brush: "paleRed" });
+    }
+    return shapes;
+  }, [coachOn, coach.autoShapes, threats]);
+
+  function guardPlayAnyway() {
+    setGuardWarn(null);
+    scheduleEngine(400);
+  }
+  function guardTakeback() {
+    setGuardWarn(null);
+    game.current.undo(); // retract just the blundering move — it's your turn again
+    const h = game.current.history({ verbose: true }) as any[];
+    const last = h[h.length - 1];
+    setLastMove(last ? [last.from, last.to] : undefined);
+    setViewPly(null);
+    pendingPlyRef.current = null;
+    clearPace();
+    setPacing(false);
+    sync();
+  }
+
+  const canTakeback = coachOn && atLive && totalPlies > 0 && !thinking && !pacing && !guardWarn;
+
   return (
     <div>
       <PageHeader
@@ -213,6 +385,9 @@ export default function Play() {
         desc="Pick an opponent from the library and play it on the board. Watch its search think in real time."
         right={
           <div className="flex gap-2">
+            <Button variant={coachOn ? "primary" : "outline"} size="sm" onClick={toggleCoach}>
+              <GraduationCap size={14} /> Coach
+            </Button>
             <Button variant="outline" size="sm" onClick={toggleEval}>
               {showEval ? <EyeOff size={14} /> : <Eye size={14} />} Eval bar
             </Button>
@@ -239,6 +414,7 @@ export default function Play() {
               movableColor={canMove ? myColor : undefined}
               viewOnly={!canMove}
               onMove={onUserMove}
+              autoShapes={boardShapes}
             />
             <MoveNav
               browsing={browsing}
@@ -264,14 +440,39 @@ export default function Play() {
                 />
               )}
             </AnimatePresence>
+            <AnimatePresence>
+              {guardWarn && (
+                <GuardOverlay
+                  judgment={guardWarn}
+                  onPlay={guardPlayAnyway}
+                  onTakeback={guardTakeback}
+                />
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
         {/* side panel */}
         <div className="flex flex-col gap-4 max-w-[380px]">
           <OpponentCard bots={bots} botId={botId} setBotId={setBotId} bot={bot} />
+          {coachOn && (
+            <CoachPanel
+              key={gameKey}
+              coach={coach}
+              fen={view.fen}
+              myColor={myColor}
+              onTakeback={takeback}
+              canTakeback={canTakeback}
+              gameOver={displayedGameOver}
+              yourTurn={canMove}
+              pacing={pacing}
+              threats={threats}
+              guardOn={guardOn}
+              onToggleGuard={toggleGuard}
+            />
+          )}
           <TelemetryCard info={info} thinking={thinking} />
-          <MoveList moves={moves} />
+          <MoveList moves={moves} judgments={coachOn ? judgments : undefined} />
           <AnimatePresence>
             {status && (
               <motion.div
@@ -290,6 +491,56 @@ export default function Play() {
         </div>
       </div>
     </div>
+  );
+}
+
+function GuardOverlay({
+  judgment,
+  onPlay,
+  onTakeback,
+}: {
+  judgment: MoveJudgment;
+  onPlay: () => void;
+  onTakeback: () => void;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="absolute inset-0 z-20 grid place-items-center p-5"
+      style={{ background: "rgba(8,7,5,0.78)", backdropFilter: "blur(3px)", borderRadius: 10 }}
+    >
+      <motion.div
+        initial={{ scale: 0.92, y: 10 }}
+        animate={{ scale: 1, y: 0 }}
+        className="panel p-5 max-w-[330px] text-center"
+        style={{ borderColor: "rgba(192,91,91,0.5)" }}
+      >
+        <motion.div
+          className="mx-auto mb-3 rounded-full grid place-items-center font-mono text-[18px]"
+          style={{ width: 46, height: 46, color: "#c05b5b", background: "linear-gradient(155deg,#c05b5b22,#c05b5b06)", border: "2px solid #c05b5b" }}
+          animate={{ x: [0, -3, 3, -2, 2, 0] }}
+          transition={{ duration: 0.5 }}
+        >
+          M
+        </motion.div>
+        <div className="text-ivory text-[14.5px] mb-1">
+          Hold on — <span className="font-mono">{judgment.san}</span> hangs material.
+        </div>
+        <div className="text-mist text-[12.5px] leading-snug mb-4">
+          {judgment.explanation?.length
+            ? judgment.explanation.join(" ")
+            : judgment.bestSan
+            ? `Take another look — ${judgment.bestSan} was much stronger.`
+            : "There's a much better move here. Take another look."}
+        </div>
+        <div className="flex gap-2 justify-center">
+          <Button size="sm" onClick={onTakeback}>Let me rethink</Button>
+          <Button size="sm" variant="outline" onClick={onPlay}>Play it anyway</Button>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -442,13 +693,21 @@ function Metric({ label, value, accent }: { label: string; value: string; accent
   );
 }
 
-function MoveList({ moves }: { moves: string[] }) {
+function MoveList({ moves, judgments }: { moves: string[]; judgments?: Map<number, MoveJudgment> }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     ref.current?.scrollTo({ top: ref.current.scrollHeight });
   }, [moves.length]);
   const pairs: [string, string?][] = [];
   for (let i = 0; i < moves.length; i += 2) pairs.push([moves[i], moves[i + 1]]);
+  // ply numbers: white move of pair i is ply 2i+1, black is 2i+2
+  const glyph = (ply: number) => {
+    const j = judgments?.get(ply);
+    if (!j) return null;
+    const m = CLASS_META[j.cls];
+    if (!m.glyph) return null;
+    return <span style={{ color: m.color }} className="ml-0.5">{m.glyph}</span>;
+  };
   return (
     <div className="panel p-4">
       <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-taupe mb-3">Moves</div>
@@ -460,8 +719,8 @@ function MoveList({ moves }: { moves: string[] }) {
             {pairs.map((p, i) => (
               <div key={i} className="contents">
                 <span className="text-taupe tnum">{i + 1}.</span>
-                <span className="text-ivory">{p[0]}</span>
-                <span className="text-mist">{p[1] ?? ""}</span>
+                <span className="text-ivory">{p[0]}{glyph(2 * i + 1)}</span>
+                <span className="text-mist">{p[1] ?? ""}{p[1] && glyph(2 * i + 2)}</span>
               </div>
             ))}
           </div>

@@ -12,7 +12,19 @@ async function j<T>(url: string, init?: RequestInit): Promise<T> {
 }
 
 export const api = {
-  health: () => j<{ ok: boolean; stockfish: string | null }>(`${API}/health`),
+  health: () =>
+    j<{ ok: boolean; stockfish: string | null; aiCoach?: boolean }>(`${API}/health`),
+  coachExplain: (payload: {
+    fen: string;
+    san: string;
+    evalText: string;
+    bestSan?: string;
+    pv?: string;
+    cls: string;
+  }) => j<{ ok: boolean; text?: string; error?: string }>(`${API}/coach/explain`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  }),
   bots: () => j<Bot[]>(`${API}/bots`),
   ratings: () => j<Rating[]>(`${API}/ratings`),
   matches: () => j<MatchResult[]>(`${API}/matches`),
