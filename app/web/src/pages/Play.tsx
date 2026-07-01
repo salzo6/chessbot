@@ -3,6 +3,7 @@ import { Chess, type Square } from "chess.js";
 import { motion, AnimatePresence } from "framer-motion";
 import { RotateCcw, Flag, Sparkles, Eye, EyeOff, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, GraduationCap } from "lucide-react";
 import { api, wsURL } from "../lib/api";
+import { train } from "../lib/train";
 import type { Bot, EngineInfo, MoveJudgment } from "../lib/types";
 import Board from "../components/Board";
 import CoachPanel from "../components/CoachPanel";
@@ -12,6 +13,17 @@ import { PageHeader, Button, Avatar, Badge } from "../components/ui";
 
 // How long to linger on the coach's take after it's ready, before the bot replies.
 const READ_MS = 1500;
+
+// Derive the PGN result + a human reason from a terminal chess.js position (natural ends
+// only — resignation isn't a modeled Play outcome yet, §A.3).
+function gameOutcome(g: Chess): { result: string; reason: string } {
+  if (g.isCheckmate()) return { result: g.turn() === "w" ? "0-1" : "1-0", reason: "checkmate" };
+  if (g.isStalemate()) return { result: "1/2-1/2", reason: "stalemate" };
+  if (g.isInsufficientMaterial()) return { result: "1/2-1/2", reason: "insufficient material" };
+  if (g.isThreefoldRepetition()) return { result: "1/2-1/2", reason: "threefold repetition" };
+  if (g.isDraw()) return { result: "1/2-1/2", reason: "50-move rule" };
+  return { result: "*", reason: "" };
+}
 
 function toDests(chess: Chess): Map<string, string[]> {
   const dests = new Map<string, string[]>();
@@ -47,6 +59,7 @@ export default function Play() {
   const pendingPlyRef = useRef<number | null>(null);
   const paceTimer = useRef<number | undefined>(undefined);
   const ws = useRef<WebSocket | null>(null);
+  const savedGameKeyRef = useRef<number | null>(null); // which gameKey we've persisted (fire once)
 
   function clearPace() {
     if (paceTimer.current) { clearTimeout(paceTimer.current); paceTimer.current = undefined; }
@@ -342,6 +355,31 @@ export default function Play() {
 
   // Don't leave a pending engine timer running if we navigate away.
   useEffect(() => () => clearPace(), []);
+
+  // ---- Trainer integration (docs/16 §A.3): the ONE additive write into the Play flow. ----
+  // When a game reaches a natural terminal state, persist it once for later analysis. Purely
+  // additive — wrapped so a failed save is silent and never blocks or alters play. Gated on
+  // real moves + a fresh gameKey so takebacks/rematches don't double-save. Coach on/off has no
+  // effect here (we save every finished human game regardless).
+  useEffect(() => {
+    const g = game.current;
+    if (!g.isGameOver()) return;
+    if (savedGameKeyRef.current === gameKey) return; // already saved this game
+    if (g.history().length === 0) return;
+    savedGameKeyRef.current = gameKey;
+    const outcome = gameOutcome(g);
+    train
+      .saveGame({
+        pgn: g.pgn(),
+        youColor: myColor,
+        botId: bot?.id || botId,
+        botName: bot?.name,
+        result: outcome.result,
+        reason: outcome.reason,
+      })
+      .catch(() => { /* silent: saving must never disturb play */ });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fen, gameKey]);
 
   // Proactive "what does the opponent threaten?" — now engine-grounded, computed in the coach
   // hook from a null-move search (only on your live turn). null = still analyzing.

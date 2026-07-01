@@ -1,6 +1,8 @@
 node_modules/
 dist/
 server/data/*.json
+server/data/games/
+server/data/analysis/
 engines/
 *.log
 .DS_Store

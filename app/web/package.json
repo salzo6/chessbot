@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "chess.js": "^1.0.0-beta.8",
+    "chess.js": "^1.4.0",
     "chessground": "^9.1.1",
     "framer-motion": "^11.11.17",
     "lucide-react": "^0.460.0",

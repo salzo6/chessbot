@@ -5,9 +5,12 @@ import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { findStockfish, Engine } from "./engine.mjs";
-import { store } from "./store.mjs";
+import { store, gamesStore, analysisStore, mistakeStore, weaknessStore } from "./store.mjs";
 import { registerStockfishFromSystem } from "./engines.mjs";
 import { runMultiGame, runRoundRobin } from "./match.mjs";
+import { enqueueGame, getProgress, resumePending, notePlayStart, notePlayEnd } from "./analysis.mjs";
+import { rebuildWeakness } from "./weakness.mjs";
+import { dueDrills, gradeDrill, drillStats } from "./drills.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 // Honor whatever the host/platform assigns; default for local dev.
@@ -62,6 +65,104 @@ app.post("/api/coach/explain", async (req, res) => {
     res.status(500).json({ ok: false, error: String(e) });
   }
 });
+/* ---------------- Trainer (docs/16) — all additive, new surfaces ---------------- */
+const rand = () => Math.random().toString(36).slice(2, 8);
+function newGameId() {
+  const d = new Date().toISOString().slice(0, 10);
+  return `${d}-${rand()}`;
+}
+
+// Persist a finished human game and enqueue background analysis. Returns { gameId }.
+app.post("/api/games", (req, res) => {
+  try {
+    const { pgn, youColor, botId, botName, result, reason, userId } = req.body || {};
+    if (!pgn || (youColor !== "white" && youColor !== "black")) {
+      return res.status(400).json({ ok: false, error: "pgn and youColor required" });
+    }
+    const bot = botId ? store.bot(botId) : null;
+    const game = {
+      id: newGameId(),
+      userId: userId || "me",
+      pgn: String(pgn),
+      youColor,
+      botId: botId || "",
+      botName: botName || bot?.name || botId || "Opponent",
+      result: result || "*",
+      reason: reason || "",
+      createdAt: new Date().toISOString(),
+      analysisStatus: "pending",
+    };
+    gamesStore.save(game);
+    enqueueGame(game.id);
+    res.json({ ok: true, gameId: game.id });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e) });
+  }
+});
+
+app.get("/api/games", (req, res) => {
+  const userId = req.query.userId || "me";
+  const list = gamesStore.list(userId).map((g) => ({ ...g, progress: getProgress(g.id) }));
+  res.json(list);
+});
+
+app.get("/api/games/:id", (req, res) => {
+  const g = gamesStore.get(req.params.id);
+  if (!g) return res.status(404).json({ ok: false, error: "not found" });
+  res.json({ ...g, progress: getProgress(g.id), mistakes: mistakeStore.forGame(g.id) });
+});
+
+app.get("/api/games/:id/analysis", (req, res) => {
+  const a = analysisStore.get(req.params.id);
+  if (!a) return res.status(404).json({ ok: false, error: "no analysis yet" });
+  res.json(a);
+});
+
+// Re-run analysis for a game (e.g. after a depth change or a failed run).
+app.post("/api/games/:id/analyze", (req, res) => {
+  const g = gamesStore.get(req.params.id);
+  if (!g) return res.status(404).json({ ok: false, error: "not found" });
+  gamesStore.update(g.id, { analysisStatus: "pending" });
+  enqueueGame(g.id);
+  res.json({ ok: true });
+});
+
+app.get("/api/train/weakness", (req, res) => {
+  const userId = req.query.userId || "me";
+  let profile = weaknessStore.get(userId);
+  if (!profile) profile = rebuildWeakness(userId);
+  res.json(profile);
+});
+
+app.get("/api/train/mistakes", (req, res) => {
+  const userId = req.query.userId || "me";
+  let list = mistakeStore.all(userId);
+  if (req.query.motif) list = list.filter((m) => (m.motifs || []).some((t) => t.tag === req.query.motif));
+  // newest first, but keep it a flat ledger the dashboard/review can index
+  list = [...list].sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+  res.json(list);
+});
+
+// Drilling (T2): due drills, grading (SM-2), stats.
+app.get("/api/train/drills/due", (req, res) => {
+  const userId = req.query.userId || "me";
+  res.json(dueDrills(userId));
+});
+app.get("/api/train/drills/stats", (req, res) => {
+  const userId = req.query.userId || "me";
+  res.json(drillStats(userId));
+});
+app.post("/api/train/drills/:id/review", (req, res) => {
+  const userId = req.query.userId || "me";
+  const grade = req.body?.grade;
+  if (!["again", "hard", "good", "easy"].includes(grade)) {
+    return res.status(400).json({ ok: false, error: "grade must be again|hard|good|easy" });
+  }
+  const r = gradeDrill(req.params.id, grade, userId);
+  if (!r) return res.status(404).json({ ok: false, error: "drill not found" });
+  res.json({ ok: true, ...r });
+});
+
 app.get("/api/bots", (_req, res) => res.json(store.bots()));
 app.get("/api/ratings", (_req, res) => res.json(store.ratings()));
 app.get("/api/matches", (_req, res) => res.json(store.matches()));
@@ -121,6 +222,7 @@ function handlePlay(ws) {
       return;
     }
     busy = true;
+    notePlayStart(); // pause any background trainer analysis so the two engines don't contend
     try {
       const eng = await engineFor(bot);
       const { uci } = await eng.search(msg.fen, {
@@ -135,6 +237,7 @@ function handlePlay(ws) {
       if (ws.readyState === ws.OPEN) ws.send(JSON.stringify({ type: "error", error: String(e) }));
     } finally {
       busy = false;
+      notePlayEnd();
     }
   });
 
@@ -284,6 +387,9 @@ function handleRoundRobin(ws) {
     }
   });
 }
+
+// Resume any game left mid-analysis by a prior crash/restart (§ resume).
+resumePending();
 
 server
   .listen(PORT, () => console.log(`◆ Gambit server on http://localhost:${PORT}`))

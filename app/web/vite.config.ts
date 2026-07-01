@@ -13,6 +13,8 @@ export default defineConfig({
   server: {
     port: Number(process.env.WEB_PORT) || 5173,
     strictPort: false, // if taken, Vite picks the next free port — client stays relative
+    // Allow importing the shared pure-logic module from app/shared (one level above web).
+    fs: { allow: [".."] },
     proxy: {
       "/api": target,
       "/ws": { target: target.replace(/^http/, "ws"), ws: true },

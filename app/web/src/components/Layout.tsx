@@ -6,6 +6,7 @@ import {
   Trophy,
   Cpu,
   CircleDot,
+  GraduationCap,
   type LucideIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -21,6 +22,7 @@ interface NavItem {
 const NAV: NavItem[] = [
   { to: "/", label: "Atelier", icon: LayoutDashboard, hint: "Overview" },
   { to: "/play", label: "Play", icon: CircleDot, hint: "You vs a bot" },
+  { to: "/train", label: "Dojo", icon: GraduationCap, hint: "Improve your game" },
   { to: "/arena", label: "Arena", icon: Swords, hint: "Bot vs bot" },
   { to: "/leaderboard", label: "Standings", icon: Trophy, hint: "Anchored Elo" },
   { to: "/bots", label: "Library", icon: Cpu, hint: "Engines & rungs" },

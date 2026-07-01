@@ -36,6 +36,7 @@ Read in order for a full grounding, or jump to what you need.
 | 13 | [The Coach](docs/13-the-coach.md) | The coaching layer over the Playboard: objective eval, move classification, tiered hints, engine-grounded threats, the "Marcus" persona |
 | 14 | [The Name: **Vesper**](docs/14-the-name.md) | What the bot is called and why — naming convention, candidates considered, availability checks |
 | 15 | [Vesper v1: The First Engine](docs/15-vesper-v1.md) | The first real engine — from-scratch 0x88 + PVS + HCE, how it's validated (perft/selftest), and an honest strength read |
+| 16 | [The Trainer](docs/16-the-trainer.md) | A personalized **Train** page: persist your games, mine recurring mistakes, tag motifs, and drill your weaknesses with spaced repetition — grounded in the improvement-science literature |
 | — | [References](docs/references.md) | Consolidated bibliography of primary sources |
 
 ---

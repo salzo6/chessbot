@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync, readdirSync } from "node:fs";
 import { dirname, join, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -172,3 +172,99 @@ export const store = {
 function withRanks(rs) {
   return [...rs].sort((a, b) => b.elo - a.elo).map((r, i) => ({ ...r, rank: i + 1 }));
 }
+
+/* ================================================================
+   Trainer stores (docs/16 §4) — purely additive. One file per saved
+   game + per-game analysis (keeps individual records small); the hot
+   mistake/weakness/drill stores are single JSON blobs for now (the
+   flagged SQLite migration is §4, not a day-one need).
+   ================================================================ */
+const GAMES_DIR = join(DATA, "games");
+const ANALYSIS_DIR = join(DATA, "analysis");
+for (const d of [GAMES_DIR, ANALYSIS_DIR]) if (!existsSync(d)) mkdirSync(d, { recursive: true });
+
+const readJson = (p, fb) => {
+  try { return JSON.parse(readFileSync(p, "utf8")); } catch { return fb; }
+};
+
+export const gamesStore = {
+  save(game) {
+    writeFileSync(join(GAMES_DIR, `${game.id}.json`), JSON.stringify(game, null, 2));
+    return game;
+  },
+  get(id) {
+    const p = join(GAMES_DIR, `${id}.json`);
+    return existsSync(p) ? readJson(p, null) : null;
+  },
+  update(id, patch) {
+    const g = gamesStore.get(id);
+    if (!g) return null;
+    const next = { ...g, ...patch };
+    return gamesStore.save(next);
+  },
+  list(userId = "me") {
+    return readdirSync(GAMES_DIR)
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => readJson(join(GAMES_DIR, f), null))
+      .filter(Boolean)
+      .filter((g) => !userId || g.userId === userId)
+      .sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")));
+  },
+};
+
+export const analysisStore = {
+  save(gameId, data) {
+    writeFileSync(join(ANALYSIS_DIR, `${gameId}.json`), JSON.stringify(data, null, 2));
+  },
+  get(gameId) {
+    const p = join(ANALYSIS_DIR, `${gameId}.json`);
+    return existsSync(p) ? readJson(p, null) : null;
+  },
+};
+
+let mistakes = load("mistakes.json", []);
+export const mistakeStore = {
+  all(userId = "me") { return mistakes.filter((m) => !userId || m.userId === userId); },
+  forGame(gameId) { return mistakes.filter((m) => m.gameId === gameId); },
+  // A game's analysis is idempotent — drop any prior rows for it before inserting fresh ones.
+  replaceForGame(gameId, list) {
+    mistakes = mistakes.filter((m) => m.gameId !== gameId).concat(list);
+    save("mistakes.json", mistakes);
+  },
+};
+
+let weakness = load("weakness.json", {});
+export const weaknessStore = {
+  get(userId = "me") { return weakness[userId] || null; },
+  set(profile) { weakness[profile.userId] = profile; save("weakness.json", weakness); },
+};
+
+// Small per-user settings (the earned puzzle rating — explicitly NOT a chess Elo, §9.4).
+let trainMeta = load("train-meta.json", {});
+export const trainMetaStore = {
+  get(userId = "me") { return trainMeta[userId] || { puzzleRating: 1000 }; },
+  set(userId, patch) {
+    trainMeta[userId] = { ...(trainMeta[userId] || { puzzleRating: 1000 }), ...patch };
+    save("train-meta.json", trainMeta);
+    return trainMeta[userId];
+  },
+};
+
+let drills = load("drills.json", []);
+export const drillStore = {
+  all(userId = "me") { return drills.filter((d) => !userId || d.userId === userId); },
+  get(id) { return drills.find((d) => d.id === id) || null; },
+  upsert(item) {
+    const i = drills.findIndex((d) => d.id === item.id);
+    if (i >= 0) drills[i] = item; else drills.push(item);
+    save("drills.json", drills);
+    return item;
+  },
+  bulkUpsert(items) {
+    for (const it of items) {
+      const i = drills.findIndex((d) => d.id === it.id);
+      if (i >= 0) drills[i] = it; else drills.push(it);
+    }
+    save("drills.json", drills);
+  },
+};
